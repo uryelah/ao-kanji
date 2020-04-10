@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { combineReducers, createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { subscriptionsReducer as subscriptions } from "./reducers/subscription";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const reducer = combineReducers({state: subscriptions, kanjis: []});
+const store = createStore(reducer, applyMiddleware(thunk));
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
