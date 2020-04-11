@@ -1,0 +1,17 @@
+.kanjis-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.kanjis-container__kanji {
+  border: 1px solid black;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 120px;
+  margin: 10px 5px;
+  padding: 10px 20px;
+  width: 120px;
+}

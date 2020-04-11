@@ -68,12 +68,9 @@ export default class MainComponent extends Component {
           {this.result()}
         </header>
         <div className="group group--r-2">
-          <KanjiGroup grade={1}/>
-          <KanjiGroup grade={2}/>
-          <KanjiGroup grade={3}/>
-          <KanjiGroup grade={4}/>
-          <KanjiGroup grade={5}/>
-          <KanjiGroup grade={6}/>
+          {
+            [1,2,3,4,5,6].map(n => <KanjiGroup actions={this.props.actions} grade={n}/>)
+          }
         </div>
       </Fragment>
     )
