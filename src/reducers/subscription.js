@@ -15,7 +15,6 @@ export const subscriptionsReducer = (state=initialState, action) => {
   switch(action.type) {
 
   case FETCH_SUBSCRIPTION_BEGIN:
-    console.log("Data Load Started");
     return {
       ...state,
       loading: true,

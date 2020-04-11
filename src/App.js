@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import './App.css';
 import MainComponent from './components/Main';
+import NavBar from './components/NavBar';
 
 import * as SubscriptionActions from "./actions/subscription";
 
@@ -10,7 +11,12 @@ class App extends Component {
 
   render() {
     const { actions, state } = this.props;
-    return (<MainComponent actions={actions} state={state} />);
+    return (
+      <main className='App'>
+        <NavBar/>
+        <MainComponent actions={actions} state={state} />
+      </main>
+    );
   }
 }
 

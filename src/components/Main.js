@@ -1,6 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import KanjiGroup from './KanjiGroup';
+import Main from './Main.css';
 
-export default class MainComponent extends Component {
+export default class MainComponent extends Component { 
+  componentDidUpdate() {
+    console.log(this.props.state.subscription);
+  }
 
   handleLoadDataOnClick = () => {
     const url = "https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?kem=parent";
@@ -40,22 +45,37 @@ export default class MainComponent extends Component {
   result = () => {
     if (this.props.state.subscription) {
       return (
-        <p>I just loaded: "{this.props.state.subscription.title}"</p>
+        <section className="group--r-2">
+          <KanjiGroup>
+            <p>Kanji: {this.props.state.subscription[0].kanji.character}</p>
+            <p>Radical: {this.props.state.subscription[0].radical.character}</p>
+          </KanjiGroup>
+        </section>
       )
     }
   }
 
   render() {
     return (
-      <>
-        <p>Hi, press button below to load data from the API.</p>
+      <Fragment>
+        <header className="App__header">
+          <p>Hi, press button below to load data from the API.</p>
 
-        {this.button()}
+          {this.button()}
 
-        {this.loader()}
+          {this.loader()}
 
-        {this.result()}
-      </>
+          {this.result()}
+        </header>
+        <div className="group group--r-2">
+          <KanjiGroup grade={1}/>
+          <KanjiGroup grade={2}/>
+          <KanjiGroup grade={3}/>
+          <KanjiGroup grade={4}/>
+          <KanjiGroup grade={5}/>
+          <KanjiGroup grade={6}/>
+        </div>
+      </Fragment>
     )
   }
 }
