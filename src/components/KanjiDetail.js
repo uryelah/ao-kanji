@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import './KanjiDetail.css';
 
 import * as SubscriptionActions from '../actions/subscription';
 

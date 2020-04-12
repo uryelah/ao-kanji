@@ -4,6 +4,20 @@ export const FETCH_SUBSCRIPTION_FAILURE = 'FETCH_SUBSCRIPTION_FAILURE';
 export const GROUP_BY_GRADE = 'GROUP_BY_GRADE';
 export const GROUP_BY_MACQUARIE = 'GROUP_BY_MACQUARIE';
 export const GROUP_BY_AP = 'GROUP_BY_AP';
+export const TOGGLE_SORT = 'TOGGLE_SORT';
+export const FILTER_BY = 'FILTER_BY';
+
+const toggleSort = sortDirection => ({
+  type: TOGGLE_SORT,
+  sortDirection,
+});
+
+const filterBy = strokeNumber => {
+  console.log(strokeNumber)
+  return ({
+  type: FILTER_BY,
+  strokeNumber,
+})};
 
 const groupByGrade = () => ({
   type: GROUP_BY_GRADE,
@@ -52,6 +66,8 @@ function fetchSubscription(subscriptionEndpointUrl, options) {
 }
 
 export {
+  toggleSort,
+  filterBy,
   groupByGrade,
   groupByMacquarie,
   groupByAP,

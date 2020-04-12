@@ -5,17 +5,36 @@ import {
   GROUP_BY_GRADE,
   GROUP_BY_MACQUARIE,
   GROUP_BY_AP,
+  TOGGLE_SORT,
+  FILTER_BY,
 } from '../actions/subscription';
+import { act } from 'react-dom/test-utils';
 
 const initialState = {
   groupBy: [1,2,3,4,5,6],
   loading: false,
   error: null,
   subscription: null,
+  filter: null,
+  sorting: 1,
 };
 
 const subscriptionsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TOGGLE_SORT:
+      console.log(action.sortDirection)
+      return {
+        ...state,
+        sorting: action.sortDirection,
+      };
+
+    case FILTER_BY:
+      console.log('fucc', action.strokeNumber)
+      return {
+        ...state,
+        filter: action.strokeNumber,
+      };
+
     case GROUP_BY_GRADE:
       return {
         ...state,

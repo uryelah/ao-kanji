@@ -5,6 +5,9 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './KanjiList.css';
 
+import FilterSort from './FilterSort';
+import FilterSortController from './FilterSortController';
+
 import * as SubscriptionActions from "../actions/subscription";
 
 class KanjiList extends Component {
@@ -14,7 +17,7 @@ class KanjiList extends Component {
     this.props = props;
   }
 
-  group() {
+  group = () => {
     if (this.props.state.groupBy.length === 6) {
       return 'grade=';
     } else if (this.props.state.groupBy.length === 11) {
@@ -24,7 +27,7 @@ class KanjiList extends Component {
     }
   }
 
-  makeRequest() {
+  makeRequest = () => {
     let url;
     if (this.props.match.params.grade_num) {
       url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?${this.group()}${this.props.match.params.grade_num}`;
@@ -54,21 +57,23 @@ class KanjiList extends Component {
     this.props.history.push(`/kanjis/${kanji}`, this.props.state);
   }
 
+  updateFilter = (number) => {
+    console.log(number, 'why')
+    this.props.actions.filterBy(number);
+  }
+
+  toggleSorting = (e, order) => {
+    e.stopPropagation();
+
+    this.props.actions.toggleSort(order);
+  }
+
   render() {
     const { state } = this.props;
     return (
       <section key={state.subscription} className="kanjis-container">
-        {state.subscription && state.subscription.length && state.subscription.map(kanji => {
-          return(
-            <article onClick={() => this.clickHandler(kanji.kanji.character)} className="kanjis-container__kanji" key={kanji.kanji.character}>
-              <h2>{kanji.kanji.character}</h2>
-              <p>
-                <strong>radical:</strong>
-                {kanji.radical.character}
-              </p>
-            </article>
-          );
-        })}
+        <FilterSortController filter={this.props.state.filter} sorting={this.props.state.sorting} updateFilter={this.updateFilter} toggleSorting={this.toggleSorting} />
+        <FilterSort filter={this.props.state.filter} sorting={this.props.state.sorting} state={state} clickHandler={this.clickHandler}/>
       </section>
     )
   }
