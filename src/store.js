@@ -1,8 +1,8 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { subscriptionsReducer as subscriptions } from "./reducers/subscription";
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import subscriptionsReducer from './reducers/subscription';
 
-const reducer = combineReducers({state: subscriptions, kanjis: []});
+const reducer = combineReducers({ state: subscriptionsReducer, kanjis: [] });
 const store = createStore(reducer, applyMiddleware(thunk));
 
 export default store;

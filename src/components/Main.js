@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import KanjiGroup from './KanjiGroup';
-import Main from './Main.css';
+import PropTypes from 'prop-types';
+import './Main.css';
 
-export default class MainComponent extends Component { 
+class MainComponent extends Component { 
   componentDidUpdate() {
     console.log(this.props.state.subscription);
   }
@@ -20,38 +21,26 @@ export default class MainComponent extends Component {
     this.props.actions.fetchSubscription(url, options);
   }
 
-  loader = () => {
-    if (this.props.state.loading) {
-      return <p>Please wait, I am loading data for you...</p>
+  handleSelect = (e) => {
+    let { value } = e.target;
+    value =  value.toLowerCase();
+
+    if (value === 'grade') {
+      this.props.actions.groupByGrade();
+    } else if (value === 'macquarie') {
+      this.props.actions.groupByMacquarie();
+    } else if (value === 'ap exam') {
+      this.props.actions.groupByAP();
     }
   }
 
-  button = () => {
-    if (this.props.state.loading) {
-      return (
-        <button disabled="disabled">
-          Hold tight!
-        </button>
-      )
+  group() {
+    if (this.props.state.groupBy.length === 6) {
+      return 'grade=';
+    } else if (this.props.state.groupBy.length === 11) {
+      return 'list=mac:c';
     } else {
-      return (
-        <button onClick={this.handleLoadDataOnClick}>
-          Load Data
-        </button>
-      )
-    }
-  }
-
-  result = () => {
-    if (this.props.state.subscription) {
-      return (
-        <section className="group--r-2">
-          <KanjiGroup>
-            <p>Kanji: {this.props.state.subscription[0].kanji.character}</p>
-            <p>Radical: {this.props.state.subscription[0].radical.character}</p>
-          </KanjiGroup>
-        </section>
-      )
+      return 'list=ap:c';
     }
   }
 
@@ -59,20 +48,27 @@ export default class MainComponent extends Component {
     return (
       <Fragment>
         <header className="App__header">
-          <p>Hi, press button below to load data from the API.</p>
+          <p>Group kanjis by:</p>
+          <select onChange={this.handleSelect}>
+            <option selected={this.props.state.groupBy.length === 6 ? true : false} name='grade'>Grade</option>
+            <option selected={this.props.state.groupBy.length === 11 ? true : false} name='macquarie'>Macquarie</option>
+            <option selected={this.props.state.groupBy.length === 20 ? true : false} name='ap'>AP exam</option>
+          </select>
 
-          {this.button()}
-
-          {this.loader()}
-
-          {this.result()}
         </header>
         <div className="group group--r-2">
           {
-            [1,2,3,4,5,6].map(n => <KanjiGroup actions={this.props.actions} grade={n}/>)
+            this.props.state.groupBy.map(n => <KanjiGroup group={this.group()} actions={this.props.actions} grade={n}/>)
           }
         </div>
       </Fragment>
     )
   }
 }
+
+MainComponent.propTypes = {
+  actions: PropTypes.objectOf(PropTypes.any).isRequired,
+  state: PropTypes.objectOf(PropTypes.any).isRequired,
+};
+
+export default MainComponent;
