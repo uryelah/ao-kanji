@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const KanjiGroup = (props) => {
-  const { grade, actions, history, state, group } = props;
+  const { grade, actions, history, state, group, classType } = props;
   const clickHandler = grade => {
     const url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?${group}${grade}`;
     const options = {
@@ -24,8 +24,10 @@ const KanjiGroup = (props) => {
     history.push(`/${path}/${grade}`, state);
   };
 
+  const className = `card ${classType}`;
+
   return (
-    <article onClick={() => clickHandler(grade)} className="card">
+    <article onClick={() => clickHandler(grade)} className={className}>
       <h2 className="card__title">
         <span className="card__title__top-left--round">
           {grade}
@@ -33,7 +35,7 @@ const KanjiGroup = (props) => {
         <span className="card__title__bottom-left">
           <button type="button" onClick={handleClick}>
             <span>
-              Grade
+              { group.includes('list') ? 'Chapter ' : 'Grade ' }
               {grade}
             </span>
           </button>

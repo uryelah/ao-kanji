@@ -45,9 +45,16 @@ class MainComponent extends Component {
   }
 
   render() {
+    const pageTitle = {
+      6: 'Grade level Kanji',
+      11: 'Macquarie study list',
+      20: 'AP exam list',
+    }
+
     return (
       <Fragment>
         <header className="App__header">
+          <h1>{pageTitle[this.props.state.groupBy.length]}</h1>
           <p>Group kanjis by:</p>
           <select onChange={this.handleSelect}>
             <option selected={this.props.state.groupBy.length === 6 ? true : false} name='grade'>Grade</option>
@@ -58,7 +65,10 @@ class MainComponent extends Component {
         </header>
         <div className="group group--r-2">
           {
-            this.props.state.groupBy.map(n => <KanjiGroup group={this.group()} actions={this.props.actions} grade={n}/>)
+            this.props.state.groupBy.map((n, i) => {
+            let dark = (i + 1) % 4 <= 1 ? 'card--light' : '';
+            return <KanjiGroup group={this.group()} classType={dark} actions={this.props.actions} grade={n}/>
+          })
           }
         </div>
       </Fragment>
