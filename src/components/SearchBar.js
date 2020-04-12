@@ -11,50 +11,13 @@ class SearchBar extends Component {
     super(props);
 
     this.state = {
-      text: '',
-      redirect: null,
+      text: this.props.text,
     };
-  }
-
-  makeRequest(e) {
-    const path = `/search/${e ? e.target.value : this.props.location.pathname.split('/').reverse()[0]}`;
-
-    const text = e ? e.target.value : this.props.location.pathname.split('/').reverse()[0];
-
-    this.setState({
-      redirect: path,
-      text: text,
-    });
-
-  let url = `https://kanjialive-api.p.rapidapi.com/api/public/search/${text}`;
-  console.log(path, this.state.text, this.props.location.pathname.split('/').reverse()[0])
-
-  const options =  {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
-      "x-rapidapi-key": "c6d4c3d3d5msh0980a85de22153ap1c95ecjsn1ea8a3f1317f",
-    }
-  }
-  this.props.actions.fetchSubscription(url, options);
-
-    setTimeout(() => {
-      this.setState({
-        redirect: null,
-        text: '',
-      });
-      this.props.history.push(path, this.props.state);
-    }, 500);
+    this.makeRequest = this.props.makeRequest;
   }
 
   componentDidMount() {
     this.makeRequest();
-  }
-
-  componentDidUpdate() {
-    if (this.props.state.subscription === null) {
-      //this.makeRequest();
-    }
   }
 
   handleKeyDown = (e) => {
@@ -64,7 +27,6 @@ class SearchBar extends Component {
   }
 
   handleChange = (e) => {
-    console.log(e, this.state.text)
     this.setState({
       text: e.target.value,
     });

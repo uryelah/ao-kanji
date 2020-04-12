@@ -57,7 +57,7 @@ class KanjiList extends Component {
   render() {
     const { state } = this.props;
     return (
-      <section className="kanjis-container">
+      <section key={state.subscription} className="kanjis-container">
         {state.subscription && state.subscription.length && state.subscription.map(kanji => {
           return(
             <article onClick={() => this.clickHandler(kanji.kanji.character)} className="kanjis-container__kanji" key={kanji.kanji.character}>
