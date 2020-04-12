@@ -52,10 +52,10 @@ class NavBar extends Component {
 
       if (path.includes('grade')) {
         group = 'grade=';
+      } else if (path.includes('ap-chapter')) {
+        group = 'list=ap:c';
       } else if (path.includes('chapter')) {
         group = 'list=mac:c';
-      } else if (path.includes('chapter')) {
-        group = 'list=ap:c';
       }
 
       let url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?${group}${this.props.location.pathname.split('/').reverse()[0]}`;

@@ -20,7 +20,7 @@ const KanjiGroup = (props) => {
   };
 
   const handleClick = () => {
-    const path = group.includes('grade') ? 'grade' : 'chapter';
+    const path = group.includes('grade') ? 'grade' : (group.includes('ap') ? 'ap-chapter' : 'chapter');
     history.push(`/${path}/${grade}`, state);
   };
 

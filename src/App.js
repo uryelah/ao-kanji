@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable import/no-named-as-default-member */
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch } from 'react-router-dom';
@@ -13,22 +14,20 @@ import KanjiDetail from './components/KanjiDetail';
 
 import * as SubscriptionActions from './actions/subscription';
 
-class App extends Component {
-  render() {
-    const { actions, state } = this.props;
-    return (
-      <main className="App">
-        <NavBar />
-        <Switch>
-          <Route path="/" render={() => <MainComponent {...{ actions, state }} />} exact />
-          <Route path="/(grade|chapter)/:grade_num" component={KanjiList} exact />
-          <Route path="/search/:word" component={KanjiList} exact />
-          <Route path="/kanjis/:kanji" component={KanjiDetail} exact />
-        </Switch>
-      </main>
-    );
-  }
-}
+const App = props => {
+  const { actions, state } = props;
+  return (
+    <main className="App">
+      <NavBar />
+      <Switch>
+        <Route path="/" render={() => <MainComponent {...{ actions, state }} />} exact />
+        <Route path="/(grade|chapter|ap-chapter)/:grade_num" component={KanjiList} exact />
+        <Route path="/search/:word" component={KanjiList} exact />
+        <Route path="/kanjis/:kanji" component={KanjiDetail} exact />
+      </Switch>
+    </main>
+  );
+};
 
 function mapStateToProps(state) {
   return state;
