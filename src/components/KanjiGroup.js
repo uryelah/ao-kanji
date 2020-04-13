@@ -3,37 +3,23 @@ import './styles/KanjiGroup.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { handleClick, fetchKanjiGroup } from '../helpers';
 
-const KanjiGroup = (props) => {
-  const { grade, actions, history, state, group, classType } = props;
-  const clickHandler = grade => {
-    const url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?${group}${grade}`;
-    const options = {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-host': 'kanjialive-api.p.rapidapi.com',
-        'x-rapidapi-key': 'c6d4c3d3d5msh0980a85de22153ap1c95ecjsn1ea8a3f1317f',
-      },
-    };
-
-    actions.fetchSubscription(url, options);
-  };
-
-  const handleClick = () => {
-    const path = group.includes('grade') ? 'grade' : (group.includes('ap') ? 'ap-chapter' : 'chapter');
-    history.push(`/${path}/${grade}`, state);
-  };
+const KanjiGroup = props => {
+  const {
+    grade, actions, history, state, group, classType,
+  } = props;
 
   const className = `card ${classType}`;
 
   return (
-    <article onClick={() => clickHandler(grade)} className={className}>
+    <article onClick={() => fetchKanjiGroup(actions, grade, group)} className={className}>
       <h2 className="card__title">
         <span className="card__title__top-left--round">
           {grade}
         </span>
         <span className="card__title__bottom-left">
-          <button className="card__btn" type="button" onClick={handleClick}>
+          <button className="card__btn" type="button" onClick={() => handleClick(grade, group, history, state)}>
             <span>
               { group.includes('list') ? 'Chapter ' : 'Grade ' }
               {grade}

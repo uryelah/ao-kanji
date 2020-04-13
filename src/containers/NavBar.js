@@ -73,7 +73,9 @@ class NavBar extends Component {
   }
 
   goBack = () => {
+    console.log(this.props.history)
     if (this.props.location.pathname.includes('grade') || this.props.location.pathname.includes('chapter')) {
+      this.props.history.push('/', this.props.state);
     } else {
       this.props.history.goBack();
       setTimeout(() => {

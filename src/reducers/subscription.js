@@ -1,3 +1,4 @@
+import { act } from 'react-dom/test-utils';
 import {
   FETCH_SUBSCRIPTION_BEGIN,
   FETCH_SUBSCRIPTION_SUCCESS,
@@ -8,10 +9,9 @@ import {
   TOGGLE_SORT,
   FILTER_BY,
 } from '../actions/subscription';
-import { act } from 'react-dom/test-utils';
 
-const initialState = {
-  groupBy: [1,2,3,4,5,6],
+export const initialState = {
+  groupBy: [1, 2, 3, 4, 5, 6],
   loading: false,
   error: null,
   subscription: null,

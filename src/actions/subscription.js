@@ -12,11 +12,10 @@ const toggleSort = sortDirection => ({
   sortDirection,
 });
 
-const filterBy = strokeNumber => {
-  return ({
+const filterBy = strokeNumber => ({
   type: FILTER_BY,
   strokeNumber,
-})};
+});
 
 const groupByGrade = () => ({
   type: GROUP_BY_GRADE,
