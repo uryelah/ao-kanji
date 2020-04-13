@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import KanjiGroup from './KanjiGroup';
 import './styles/Main.css';
 import { pageTitle, handleSelect } from '../helpers';
-import Loader from './Loader';
 
 const MainComponent = props => {
   const { actions, state } = props;

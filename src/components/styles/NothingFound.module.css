@@ -1,0 +1,26 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.image {
+  display: inline-block;
+  opacity: 0.2;
+  width: 300px;
+  filter: drop-shadow(0 0 10px #659bff);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+}
