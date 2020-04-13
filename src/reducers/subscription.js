@@ -22,14 +22,12 @@ const initialState = {
 const subscriptionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_SORT:
-      console.log(action.sortDirection)
       return {
         ...state,
         sorting: action.sortDirection,
       };
 
     case FILTER_BY:
-      console.log('fucc', action.strokeNumber)
       return {
         ...state,
         filter: action.strokeNumber,

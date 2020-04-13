@@ -13,7 +13,6 @@ const toggleSort = sortDirection => ({
 });
 
 const filterBy = strokeNumber => {
-  console.log(strokeNumber)
   return ({
   type: FILTER_BY,
   strokeNumber,

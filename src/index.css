@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,600,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap&subset=japanese');
 
 body {
@@ -13,6 +13,10 @@ body {
 
 a {
   color: inherit;
+}
+
+button, .fas, .fa {
+  cursor: pointer;
 }
 
 code {

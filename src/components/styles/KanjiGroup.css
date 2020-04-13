@@ -27,6 +27,13 @@
   flex-direction: column;
 }
 
+.card__btn {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.35rem;
+}
+
 [class*=top-left--round] {
   align-items: flex-end;
   background-color: #22437e;

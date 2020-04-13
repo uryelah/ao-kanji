@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { withRouter } from 'react-router-dom';
-import './NavBar.css';
+import { withRouter, Link } from 'react-router-dom';
+import navbar from './styles/NavBar.module.css';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 
@@ -33,7 +33,6 @@ class NavBar extends Component {
       });
 
       let url = `https://kanjialive-api.p.rapidapi.com/api/public/search/${text}`;
-      console.log(path, this.state.text, this.props.location.pathname.split('/').reverse()[0])
   
       const options =  {
         "method": "GET",
@@ -60,8 +59,6 @@ class NavBar extends Component {
 
       let url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?${group}${this.props.location.pathname.split('/').reverse()[0]}`;
   
-      console.log(url)
-
       const options =  {
         "method": "GET",
         "headers": {
@@ -77,7 +74,6 @@ class NavBar extends Component {
 
   goBack = () => {
     if (this.props.location.pathname.includes('grade') || this.props.location.pathname.includes('chapter')) {
-      console.log(this.props.history.push('/'), this.props.state)
     } else {
       this.props.history.goBack();
       setTimeout(() => {
@@ -95,7 +91,6 @@ class NavBar extends Component {
   handleKeyDown = e => {
     if (e.keyCode === 9) {
       this.props.history.goBack();
-      //this.makeRequest();
     }
   };
 
@@ -106,9 +101,11 @@ class NavBar extends Component {
   }
 
   render() {
+    const navIcon = `fas fa-chevron-left ${navbar.ico}`
     return (
-      <nav className="nav">
-        { this.props.location.pathname !== '/' && <i role="button" tabIndex={1} aria-label="Back to last page" onClick={this.clickHandler} onKeyDown={e => this.handleKeyDown(e)} className="fas fa-chevron-left nav__back-ico" />}
+      <nav className={navbar.nav}>
+        <Link to="/" className={navbar.logo}><span className={navbar.logo__kanji}>青</span>KANJI</Link>
+        { this.props.location.pathname !== '/' && <i role="button" tabIndex={1} aria-label="Back to last page" onClick={this.clickHandler} onKeyDown={e => this.handleKeyDown(e)} className={navIcon} />}
         <SearchBar key={this.state.text} updateText={this.updateText} state={this.state} text={this.state.text} makeRequest={this.makeRequest} />
       </nav>
     );

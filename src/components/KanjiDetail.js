@@ -1,19 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import './KanjiDetail.css';
+import kanji from './styles/KanjiDetail.module.css';
 
 import * as SubscriptionActions from '../actions/subscription';
 
-class KanjiDetail extends Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-
-  componentDidMount() {
-    const url = `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${this.props.match.params.kanji}`;
+const KanjiDetail = props => {
+  useEffect(() => {
+    const url = `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${props.match.params.kanji}`;
     const options = {
       method: 'GET',
       headers: {
@@ -22,43 +17,43 @@ class KanjiDetail extends Component {
       },
     };
 
-    this.props.actions.fetchSubscription(url, options);
-  }
+    props.actions.fetchSubscription(url, options);
+  }, []);
 
-  details() {
+  const details = () => {
     return (
       <>
         <video width="320" height="240" autoPlay loop>
-          <source src={this.props.state.subscription.kanji.video.mp4} type="video/mp4" />
-          <source src={this.props.state.subscription.kanji.video.webm} type="video/ogg" />
+          <source src={props.state.subscription.kanji.video.mp4} type="video/mp4" />
+          <source src={props.state.subscription.kanji.video.webm} type="video/ogg" />
           Your browser does not support the video tag.
         </video>
-        <h1>{this.props.state.subscription.kanji.character}</h1>
+        <h1>{props.state.subscription.kanji.character}</h1>
         <h3>
-          {this.props.state.subscription.kanji.kunyomi.hiragana}
+          {props.state.subscription.kanji.kunyomi.hiragana}
           {' '}
           -
           {' '}
-          {this.props.state.subscription.kanji.onyomi.katakana}
+          {props.state.subscription.kanji.onyomi.katakana}
         </h3>
-        <h2>{this.props.state.subscription.kanji.meaning.english}</h2>
+        <h2>{props.state.subscription.kanji.meaning.english}</h2>
         <hr />
         <article>
           Strokes
           <div>
-            {this.props.state.subscription.kanji.strokes.images.map(image => <img src={image} width="60" />)}
+            {props.state.subscription.kanji.strokes.images.map(image => <img src={image} width="60" />)}
           </div>
         </article>
         <hr />
         <strong>
           Radical:
-          {this.props.state.subscription.radical.character}
+          {props.state.subscription.radical.character}
         </strong>
         <hr />
         <article>
           <h3>Examples</h3>
           <ul>
-            {this.props.state.subscription.examples.map(example => (
+            {props.state.subscription.examples.map(example => (
               <li>
                 <strong>{example.japanese}</strong>
                 {' '}
@@ -79,21 +74,18 @@ class KanjiDetail extends Component {
     );
   }
 
-  render() {
-    if (this.props.state.subscription) {
+    if (props.state.subscription) {
       const {
         kanji, examples, radical, references,
-      } = this.props.state.subscription;
-      console.log(kanji, examples, radical, references);
+      } = props.state.subscription;
     }
 
     return (
-      <section className="kanjis-detail">
-        { this.props.state.subscription && this.props.state.subscription.kanji ? this.details()
+      <section className={kanji.detail}>
+        { props.state.subscription && props.state.subscription.kanji ? details()
           : <h1>...loading</h1>}
       </section>
     );
-  }
 }
 
 function mapStateToProps(state) {

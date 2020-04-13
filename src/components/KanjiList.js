@@ -1,42 +1,35 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './KanjiList.css';
+import kanji from './styles/KanjiList.module.css';
 
 import FilterSort from './FilterSort';
 import FilterSortController from './FilterSortController';
 
 import * as SubscriptionActions from "../actions/subscription";
 
-class KanjiList extends Component {
-  
-  constructor(props) {
-    super(props)
-    this.props = props;
-  }
-
-  group = () => {
-    if (this.props.state.groupBy.length === 6) {
+const KanjiList = (props) => {
+  const group = () => {
+    if (props.state.groupBy.length === 6) {
       return 'grade=';
-    } else if (this.props.state.groupBy.length === 11) {
+    } else if (props.state.groupBy.length === 11) {
       return 'list=mac:c';
     } else {
       return 'list=ap:c';
     }
   }
 
-  makeRequest = () => {
+  const makeRequest = () => {
     let url;
-    if (this.props.match.params.grade_num) {
-      url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?${this.group()}${this.props.match.params.grade_num}`;
-    } else if (this.props.match.params.word) {
-      console.log(this.props.match.params.word)
-      url = `https://kanjialive-api.p.rapidapi.com/api/public/search/${this.props.match.params.word}`;
+    if (props.match.params.grade_num) {
+      url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?${group()}${props.match.params.grade_num}`;
+    } else if (props.match.params.word) {
+      url = `https://kanjialive-api.p.rapidapi.com/api/public/search/${props.match.params.word}`;
     }
 
-    const options =  {
+    const options = {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
@@ -44,39 +37,36 @@ class KanjiList extends Component {
       }
     }
 
-    this.props.actions.fetchSubscription(url, options);
+    props.actions.fetchSubscription(url, options);
   }
 
-  componentDidMount() {
-    if (this.props.match.params.grade_num) {
-      this.makeRequest();    
+  useEffect(() => {
+    if (props.match.params.grade_num) {
+      makeRequest();
     }
+  }, []);
+
+  const clickHandler = (kanji) => {
+    props.history.push(`/kanjis/${kanji}`, props.state);
   }
 
-  clickHandler = (kanji) => {
-    this.props.history.push(`/kanjis/${kanji}`, this.props.state);
+  const updateFilter = (number) => {
+    props.actions.filterBy(number);
   }
 
-  updateFilter = (number) => {
-    console.log(number, 'why')
-    this.props.actions.filterBy(number);
-  }
-
-  toggleSorting = (e, order) => {
+  const toggleSorting = (e, order) => {
     e.stopPropagation();
 
-    this.props.actions.toggleSort(order);
+    props.actions.toggleSort(order);
   }
 
-  render() {
-    const { state } = this.props;
-    return (
-      <section key={state.subscription} className="kanjis-container">
-        <FilterSortController filter={this.props.state.filter} sorting={this.props.state.sorting} updateFilter={this.updateFilter} toggleSorting={this.toggleSorting} />
-        <FilterSort filter={this.props.state.filter} sorting={this.props.state.sorting} state={state} clickHandler={this.clickHandler}/>
-      </section>
-    )
-  }
+  const { state } = props;
+  return (
+    <section key={state.subscription} className={kanji.container}>
+      <FilterSortController filter={props.state.filter} sorting={props.state.sorting} updateFilter={updateFilter} toggleSorting={toggleSorting} />
+      <FilterSort filter={props.state.filter} sorting={props.state.sorting} state={state} clickHandler={clickHandler} />
+    </section>
+  )
 };
 
 function mapStateToProps(state) {

@@ -1,80 +1,36 @@
-import React, { Component, Fragment } from "react";
-import KanjiGroup from './KanjiGroup';
+import React, { Fragment } from "react";
 import PropTypes from 'prop-types';
-import './Main.css';
+import KanjiGroup from './KanjiGroup';
+import './styles/Main.css';
+import { pageTitle, handleSelect } from '../helpers.js';
 
-class MainComponent extends Component { 
-  componentDidUpdate() {
-    console.log(this.props.state.subscription);
-  }
+const MainComponent = (props) => {
+  const { actions, state } = props;
+  const { groupBy } = state;
 
-  handleLoadDataOnClick = () => {
-    const url = "https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?kem=parent";
-    const options =  {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
-            "x-rapidapi-key": "c6d4c3d3d5msh0980a85de22153ap1c95ecjsn1ea8a3f1317f"
-        }
-    }
+  return (
+    <Fragment>
+      <header className={pageTitle[groupBy.length][1]}>
+        <h1>{pageTitle[groupBy.length][0]}</h1>
+        <label className="App__header__label" htmlFor="select-group">Group kanji by:</label>
+        <select id="select-group" className="App__header__select" onChange={(e) => handleSelect(e, actions)}>
+          <option selected={groupBy.length === 6} name='grade'>Grade</option>
+          <option selected={groupBy.length === 11} name='macquarie'>Macquarie</option>
+          <option selected={groupBy.length === 20} name='ap'>AP exam</option>
+        </select>
+      </header>
 
-    this.props.actions.fetchSubscription(url, options);
-  }
-
-  handleSelect = (e) => {
-    let { value } = e.target;
-    value =  value.toLowerCase();
-
-    if (value === 'grade') {
-      this.props.actions.groupByGrade();
-    } else if (value === 'macquarie') {
-      this.props.actions.groupByMacquarie();
-    } else if (value === 'ap exam') {
-      this.props.actions.groupByAP();
-    }
-  }
-
-  group() {
-    if (this.props.state.groupBy.length === 6) {
-      return 'grade=';
-    } else if (this.props.state.groupBy.length === 11) {
-      return 'list=mac:c';
-    } else {
-      return 'list=ap:c';
-    }
-  }
-
-  render() {
-    const pageTitle = {
-      6: 'Grade level Kanji',
-      11: 'Macquarie study list',
-      20: 'AP exam list',
-    }
-
-    return (
-      <Fragment>
-        <header className="App__header">
-          <h1>{pageTitle[this.props.state.groupBy.length]}</h1>
-          <p>Group kanjis by:</p>
-          <select onChange={this.handleSelect}>
-            <option selected={this.props.state.groupBy.length === 6 ? true : false} name='grade'>Grade</option>
-            <option selected={this.props.state.groupBy.length === 11 ? true : false} name='macquarie'>Macquarie</option>
-            <option selected={this.props.state.groupBy.length === 20 ? true : false} name='ap'>AP exam</option>
-          </select>
-
-        </header>
-        <div className="group group--r-2">
-          {
-            this.props.state.groupBy.map((n, i) => {
+      <div className="group group--r-2">
+        {
+          props.state.groupBy.map((n, i) => {
             let dark = (i + 1) % 4 <= 1 ? 'card--light' : '';
-            return <KanjiGroup group={this.group()} classType={dark} actions={this.props.actions} grade={n}/>
+            return <KanjiGroup group={pageTitle[props.state.groupBy.length][2]} classType={dark} actions={props.actions} grade={n} />
           })
-          }
-        </div>
-      </Fragment>
-    )
-  }
-}
+        }
+      </div>
+    </Fragment>
+  )
+};
 
 MainComponent.propTypes = {
   actions: PropTypes.objectOf(PropTypes.any).isRequired,

@@ -1,7 +1,7 @@
 import React from 'react';
-import './KanjiGroup.css';
+import './styles/KanjiGroup.css';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const KanjiGroup = (props) => {
@@ -33,7 +33,7 @@ const KanjiGroup = (props) => {
           {grade}
         </span>
         <span className="card__title__bottom-left">
-          <button type="button" onClick={handleClick}>
+          <button className="card__btn" type="button" onClick={handleClick}>
             <span>
               { group.includes('list') ? 'Chapter ' : 'Grade ' }
               {grade}

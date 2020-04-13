@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import './FilterSortController.css';
+import './styles/FilterSortController.css';
 
-const FilterSortController = ({filter, sorting, updateFilter, toggleSorting}) => {
+const FilterSortController = ({sorting, updateFilter, toggleSorting}) => {
   const isOn = n => {
     const type = n < 0 ? 'down' : 'up-alt';
 

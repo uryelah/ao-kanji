@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { withRouter, Redirect } from 'react-router-dom';
-import './SearchBar.css';
+import { withRouter } from 'react-router-dom';
+import search from './styles/SearchBar.module.css';
 
 import * as SubscriptionActions from "../actions/subscription";
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
+
+    this.inputRef = React.createRef();
 
     this.state = {
       text: this.props.text,
@@ -26,6 +28,10 @@ class SearchBar extends Component {
     }
   }
 
+  handleClick = () => {
+    this.makeRequest({target: { value: this.inputRef.current.value }});
+  }
+
   handleChange = (e) => {
     this.setState({
       text: e.target.value,
@@ -33,10 +39,11 @@ class SearchBar extends Component {
   }
 
   render() {
+    const iconClass = `fas fa-search  ${search.ico}`
     return (
       <Fragment>
-        <input value={this.state.text} onKeyDown={e => this.handleKeyDown(e)} onChange={this.handleChange} tabIndex={0} className="nav__search" type="text" placeholder="Search by: kanji, word, kana..." required />
-        <i className="fas fa-search nav__search-ico" />
+        <input ref={this.inputRef} value={this.state.text} onKeyDown={e => this.handleKeyDown(e)} onChange={this.handleChange} tabIndex={0} className={search.nav__search} type="text" placeholder="Search by: kanji, word, kana..." required />
+        <i onClick={this.handleClick} className={iconClass} />
       </Fragment>
     );
   }
