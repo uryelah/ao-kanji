@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { createStore } from 'redux';
 import { render, fireEvent, screen } from './test-utils';

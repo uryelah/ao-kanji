@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -9,11 +9,6 @@ import * as SubscriptionActions from '../actions/subscription';
 
 const KanjiDetail = props => {
   const { state, match } = props;
-  if (state.subscription) {
-    const {
-      kanji, examples, radical, references,
-    } = state.subscription;
-  }
 
   useEffect(() => {
     const url = `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${match.params.kanji}`;
@@ -31,6 +26,7 @@ const KanjiDetail = props => {
   const details = () => (
     <>
       <video width="320" height="240" autoPlay loop>
+        <track src="" kind="captions" srcLang="en" label="no_captions" />
         <source src={state.subscription.kanji.video.mp4} type="video/mp4" />
         <source src={state.subscription.kanji.video.webm} type="video/ogg" />
         Your browser does not support the video tag.
@@ -48,7 +44,7 @@ const KanjiDetail = props => {
       <article>
         Strokes
         <div>
-          {state.subscription.kanji.strokes.images.map(image => <img key={image} src={image} width="60" />)}
+          {state.subscription.kanji.strokes.images.map(image => <img key={image} src={image} width="60" alt="kanji_stroke" />)}
         </div>
       </article>
       <hr />
@@ -68,7 +64,7 @@ const KanjiDetail = props => {
               <em>{example.meaning.english}</em>
               <div>
                 <audio controls>
-                  <track/>
+                  <track src="" kind="captions" srcLang="en" label="no_captions" />
                   <source src={example.audio.mp3} type="audio/mp3" />
                   <source src={example.audio.aac} type="audio/aac" />
                   <source src={example.audio.ogg} type="audio/ogg" />
@@ -102,6 +98,7 @@ function mapActionsToProps(dispatch) {
 KanjiDetail.propTypes = {
   actions: PropTypes.objectOf(PropTypes.any).isRequired,
   state: PropTypes.objectOf(PropTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(KanjiDetail);

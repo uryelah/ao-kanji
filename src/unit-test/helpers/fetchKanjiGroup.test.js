@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { fetchKanjiGroup } from '../../helpers/index.js';
 
 it('is a function', () => {

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { handleSelect } from '../../helpers/index.js';
 
 it('is a function', () => {

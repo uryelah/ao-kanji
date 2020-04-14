@@ -27,8 +27,8 @@ const updateFilter = (number, filterBy) => {
   filterBy(number);
 };
 
-const clickHandler = (kanji, history, ele_state) => {
-  history.push(`/kanjis/${kanji}`, ele_state);
+const clickHandler = (kanji, history, eleState) => {
+  history.push(`/kanjis/${kanji}`, eleState);
 };
 
 const makeRequest = ({ actions, match, state }) => {
@@ -52,6 +52,7 @@ const makeRequest = ({ actions, match, state }) => {
 };
 
 const handleClick = (grade, group, history, state) => {
+  // eslint-disable-next-line no-nested-ternary
   const path = group.includes('grade') ? 'grade' : (group.includes('ap') ? 'ap-chapter' : 'chapter');
   history.push(`/${path}/${grade}`, state);
 };

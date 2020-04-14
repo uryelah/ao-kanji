@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { createStore } from 'redux';

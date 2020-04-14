@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -15,9 +16,15 @@ class NavBar extends Component {
     this.state = {
       text: '',
     }
+
+    this.makeRequest.bind(this);
+    this.goBack.bind(this);
+    this.clickHandler.bind(this);
+    this.handleKeyDown.bind(this);
+    this.updateText.bind(this);
   }
 
-  makeRequest = (e) => {
+  makeRequest(e) {
     const path = `${e ? '/search/' + e.target.value : this.props.location.pathname}`;
 
     const text = e ? e.target.value : this.props.location.pathname.split('/').reverse()[0];
@@ -72,8 +79,7 @@ class NavBar extends Component {
     }
   }
 
-  goBack = () => {
-    console.log(this.props.history)
+  goBack() {
     if (this.props.location.pathname.includes('grade') || this.props.location.pathname.includes('chapter')) {
       this.props.history.push('/', this.props.state);
     } else {
@@ -86,17 +92,17 @@ class NavBar extends Component {
     }
   }
 
-  clickHandler = () => {
+  clickHandler() {
     this.goBack();
   };
 
-  handleKeyDown = e => {
+  handleKeyDown(e) {
     if (e.keyCode === 9) {
       this.props.history.goBack();
     }
   };
 
-  updateText = () => {
+  updateText() {
     this.setState({
       text: 'ball',
     })

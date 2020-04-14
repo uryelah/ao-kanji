@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
 import PropTypes from 'prop-types';
 import KanjiGroup from './KanjiGroup';
 import './styles/Main.css';
@@ -22,9 +23,17 @@ const MainComponent = props => {
 
       <div className="group group--r-2">
         {
-          props.state.groupBy.map((n, i) => {
+          state.groupBy.map((n, i) => {
             const dark = (i + 1) % 4 <= 1 ? 'card--light' : '';
-            return <KanjiGroup group={pageTitle[props.state.groupBy.length][2]} classType={dark} actions={props.actions} grade={n} />;
+            return (
+              <KanjiGroup
+                key={n}
+                group={pageTitle[props.state.groupBy.length][2]}
+                classType={dark}
+                actions={props.actions}
+                grade={n}
+              />
+            );
           })
         }
       </div>

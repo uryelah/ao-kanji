@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import './styles/FilterSortController.css';
 import { isOn, handleFilter as handleClick } from '../helpers';
 
@@ -23,17 +24,17 @@ const FilterSortController = ({
   return (
     <header className="filter-sort-bar">
       <div>
-        <i 
+        <i
           className={isOn(-1, sorting)}
-          onClick={ e => handleShow(toggleSorting, [e, -1, toggleCallback])}
+          onClick={e => handleShow(toggleSorting, [e, -1, toggleCallback])}
           role="button"
           tabIndex={-1}
           aria-label="Sort down"
           onKeyDown={e => handleKeyDown(e, 40, -1)}
         />
-        <i 
+        <i
           className={isOn(1, sorting)}
-          onClick={ e => handleShow(toggleSorting, [e, 1, toggleCallback])}
+          onClick={e => handleShow(toggleSorting, [e, 1, toggleCallback])}
           role="button"
           tabIndex={-1}
           aria-label="Sort up"
@@ -50,6 +51,15 @@ const FilterSortController = ({
       </div>
     </header>
   );
+};
+
+FilterSortController.propTypes = {
+  updateFilter: PropTypes.func.isRequired,
+  filterCallback: PropTypes.func.isRequired,
+  toggleSorting: PropTypes.func.isRequired,
+  toggleCallback: PropTypes.func.isRequired,
+  loadVisible: PropTypes.func.isRequired,
+  sorting: PropTypes.number.isRequired,
 };
 
 export default FilterSortController;

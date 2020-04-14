@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { pageTitle } from '../../helpers/index.js';
 
 it('is an object', () => {

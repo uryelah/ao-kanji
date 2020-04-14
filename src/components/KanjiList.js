@@ -13,7 +13,7 @@ import * as SubscriptionActions from '../actions/subscription';
 
 import {
   makeRequest, toggleSorting, updateFilter, clickHandler,
-} from '../helpers/index.js';
+} from '../helpers/index';
 
 const KanjiList = props => {
   const thisRef = useRef(null);
@@ -24,13 +24,14 @@ const KanjiList = props => {
     }
   }, []);
 
-  const handleScroll = (e) => {
+  const handleScroll = () => {
     [...thisRef.current.children].map(child => {
       if (thisRef.current.clientHeight + thisRef.current.scrollTop < child.offsetTop) {
         child.classList.add('out_of_view');
       } else {
         child.classList.remove('out_of_view');
       }
+      return null;
     });
   };
 
@@ -59,8 +60,8 @@ const KanjiList = props => {
         : (
           <FilterSort
             loadVisible={handleScroll}
-            filter={props.state.filter}
-            sorting={props.state.sorting}
+            filter={propState.filter}
+            sorting={propState.sorting}
             state={propState}
             history={history}
             clickHandler={clickHandler}
@@ -84,6 +85,7 @@ KanjiList.propTypes = {
   actions: PropTypes.objectOf(PropTypes.any).isRequired,
   state: PropTypes.objectOf(PropTypes.any).isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(withRouter(KanjiList));
