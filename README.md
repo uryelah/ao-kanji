@@ -1,68 +1,216 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
 
-In the project directory, you can run:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://uryelah.github.io/ao-kanji/">
+    <img src="./public/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-### `yarn start`
+  <h1 align="center">
+    <a href="https://uryelah.github.io/ao-kanji/">
+    Ao Kanji
+    </a>
+  </h1>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <p align="center">
+    A simple one page kanji study webapp
+    <br />
+    <a href="https://uryelah.github.io/"><strong>Use it live here »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/uryelah/ao-kanji/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/uryelah/ao-kanji/issues">Request Feature</a>
+  </p>
+</p>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-### `yarn test`
+* [About](#about)
+* [About the App](#about-the-app)
+* [Navigation](#navigation)
+* [Characters](#characters)
+* [Views](#views)
+* [Routes](#routes)
+* [Prerequisites](#prerequisites)
+* [Built With](#built-with)
+* [Commands](#available-commands)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+* [CopyRight/Attributions](#copyRight/Attributions)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## About
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was about making a shooter game, similar to space asteroids, using the Phaser3 Javascript game engine.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+In this project I implemented a game with projectiles comming both from and towards the player, player sprite movement, enemy 'downward' movement and collisions, with an oceanic theme.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Project requirements [here](https://www.notion.so/Shooter-game-203e819041c7486bb36f9e65faecba27).
 
-### `yarn eject`
+Repository: https://github.com/uryelah/ao-kanji
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## About The App
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**From the depths** consists of a shooter game with the twist that it happens under the sea instead of the in space.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You control an ancient, squid-like, sea creature that has their domains invaded by humans, much to its demise. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The games object is to get points from eliminating the humans and its machines, while keeping your hp, or health points, above zero.
 
-## Learn More
+All the art feature in this game is original if not indicated otherwise at the Attributions section.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Features**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Shoot stuff!
+- Eat fish!
+- Squeeze humans slowly to their death!
+- Battle a submarine!
+- Wiggle a tentacle around
+- Check if your score at the top of the LeaderBoard!
 
-### Code Splitting
+-----
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Navigation
 
-### Analyzing the Bundle Size
+[![Product Name Screen Shot][product-screenshot]](https://uryelah.github.io/ao-kanji/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+This game is completelly controlled with your mouse or touch pad.
 
-### Making a Progressive Web App
+To start choose your name, it will be used to save your score at the end.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Move your mouse and your character tentacle will follow it.
 
-### Advanced Configuration
+Click to shoot bubbles at humans and their submarines.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Click and hold to squeeze humans to death or to eat fish and get more hp.
 
-### Deployment
+Click and hold while moving your cursor, for less time, to carry a human around.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Avoid human projectiles or carry a dumb humans to use as your shield, good for a maximum of two shots.
 
-### `yarn build` fails to minify
+Avoid the submarine ray attacks.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The game starts very slow but gets harder and harder with time, so good luck staying alive ;-)
+
+## Views
+
+This game consists of four scenes:
+
+- The Main Menu scene
+This scene takes you to the Leader Board scene and the Main Game scene.
+<img src='./assets/Screenshot_2020-04-06 From the depths .png' width='300'>
+
+- The Main Game scene
+In this scene you can play the actual game and it takes you to the Game Over scene if your hp drops to 0 points.
+<img src='./assets/Screenshot_2020-04-06 From the depths (2).png' width='300'>
+
+- The Game Over scene
+This scene appears on losing the Game and has a button to refresh the page and play again.
+<img src='./assets/Screenshot_2020-04-06 From the depths (3).png' width='300'>
+
+- The Leader Board scene
+This scene is accessed from the Main Menu and has a link back to it. It shows the top 15 scores recorded in the API.
+<img src='./assets/Screenshot_2020-04-06 From the depths (1).png' width='300'>
+
+## Routes
+
+routes info
+
+## Prerequisites
+
+If you want to...
+
+**View this app online**
+
+Simply access [this link](https://uryelah.github.io/ao-kanji/) and enjoy the game!
+
+**Run it locally**
+
+1. Make sure you have [node installed](https://nodejs.org/en/download/) in you local environment.
+
+2. Download or clone this repository
+
+3. Navigate to the game root directory in your terminal
+
+4. Install the required packages:
+```sh
+npm i
+```
+5. Start the game in your browser:
+```sh
+npm run start
+```
+
+------
+
+### Built With
+This project was built using the React SPA framework, consuming the data from the [Learn to read and write Japanese kanji API](https://rapidapi.com/KanjiAlive/api/learn-to-read-and-write-japanese-kanji/endpoints), together with Redux for state management.
+
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/javascript)
+* [Redux-thunk](https://github.com/reduxjs/redux-thunk)
+* [Learn to read and write Japanese kanji API](https://rapidapi.com/KanjiAlive/api/learn-to-read-and-write-japanese-kanji/endpoints)
+* [Webpack](https://webpack.js.org/)
+* [Babel](https://babeljs.io/)
+
+
+## Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm install` | Install project dependencies |
+| `npm start` | Build project and open web server running project |
+| `npm eject` | Eject configuration files for customization
+| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+| `npm run test` | Run the available tests |
+| `npm run predeploy` | Build code for deployment |
+| `npm run deploy` | Pushes built code to gh-pages |
+
+-------
+
+## Contact
+
+Sarah Chamorro - [@your_twitter](https://twitter.com/sarah_chamorro) - sarahchamorro@gmail.com
+
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+-------
+
+## Acknowledgements
+* [StackOverflow](stackoverflow.com/)
+* [Create React App](https://github.com/facebook/create-react-app)
+* Microverse
+* Team 54
+
+## CopyRight/Attributions
+
+This project was only possible thanks to the cretors bellow:
+
+[Design idea by Nelson Sakwa on Behance](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
+
+[Kanji Alive great free kanji API](https://rapidapi.com/user/KanjiAlive)
+
+-------
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
+[contributors-url]: https://github.com/uryelah/ao-kanji/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
+[forks-url]: https://github.com/uryelah/ao-kanji/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
+[stars-url]: https://github.com/uryelah/ao-kanji/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
+[issues-url]: https://github.com/uryelah/ao-kanji/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-url]: https://github.com/uryelah/ao-kanji/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/uryelah/
+[product-screenshot]: ./assets/gameplay.gif

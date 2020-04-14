@@ -95,9 +95,20 @@ const KanjiDetail = props => {
       <footer className={kanji.references}>
         <h4>References</h4>
         <ul>
-          <li>Grade: <strong className={kanji.chapter}>{state.subscription.references.grade}</strong></li>
-          <li>Kodansha: <strong className={kanji.chapter}>{state.subscription.references.kodansha}</strong></li>
-          <li>Classic Nelson: <strong className={kanji.chapter}>{state.subscription.references.classic_nelson}</strong></li>
+          <li>
+            Grade:
+            <strong className={kanji.chapter}>{state.subscription.references.grade}</strong>
+          </li>
+          <li>
+            Kodansha:
+            <strong className={kanji.chapter}>{state.subscription.references.kodansha}</strong>
+          </li>
+          <li>
+            Classic Nelson:
+            <strong className={kanji.chapter}>
+              {state.subscription.references.classic_nelson}
+            </strong>
+          </li>
         </ul>
       </footer>
     </>

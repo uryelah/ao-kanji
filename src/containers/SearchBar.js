@@ -59,7 +59,7 @@ class SearchBar extends Component {
 
     return (
       <>
-        <input ref={inputRef} value={state.text} onKeyDown={e => handleKeyDown(e)} onChange={handleChange} tabIndex={0} className={search.nav__search} type="text" placeholder="Search by: kanji, word, kana..." required />
+        <input ref={inputRef} value={state.text} onKeyDown={e => handleKeyDown(e)} onChange={handleChange} tabIndex={0} className={search.nav__search} type="text" placeholder="Search..." required />
         <i
           onClick={handleClick}
           className={iconClass}
