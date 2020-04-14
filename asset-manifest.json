@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ao-kanji/static/css/main.94aa86d5.chunk.css",
+    "main.js": "/ao-kanji/static/js/main.e1709bff.chunk.js",
+    "main.js.map": "/ao-kanji/static/js/main.e1709bff.chunk.js.map",
+    "runtime-main.js": "/ao-kanji/static/js/runtime-main.79f02abc.js",
+    "runtime-main.js.map": "/ao-kanji/static/js/runtime-main.79f02abc.js.map",
+    "static/js/2.f98dc233.chunk.js": "/ao-kanji/static/js/2.f98dc233.chunk.js",
+    "static/js/2.f98dc233.chunk.js.map": "/ao-kanji/static/js/2.f98dc233.chunk.js.map",
+    "index.html": "/ao-kanji/index.html",
+    "precache-manifest.f07e22c32282d0db77d272cbf3a50f07.js": "/ao-kanji/precache-manifest.f07e22c32282d0db77d272cbf3a50f07.js",
+    "service-worker.js": "/ao-kanji/service-worker.js",
+    "static/css/main.94aa86d5.chunk.css.map": "/ao-kanji/static/css/main.94aa86d5.chunk.css.map",
+    "static/js/2.f98dc233.chunk.js.LICENSE.txt": "/ao-kanji/static/js/2.f98dc233.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.79f02abc.js",
+    "static/js/2.f98dc233.chunk.js",
+    "static/css/main.94aa86d5.chunk.css",
+    "static/js/main.e1709bff.chunk.js"
+  ]
+}
