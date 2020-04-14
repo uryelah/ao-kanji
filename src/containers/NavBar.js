@@ -17,11 +17,11 @@ class NavBar extends Component {
       text: '',
     }
 
-    this.makeRequest.bind(this);
-    this.goBack.bind(this);
-    this.clickHandler.bind(this);
-    this.handleKeyDown.bind(this);
-    this.updateText.bind(this);
+    this.makeRequest = this.makeRequest.bind(this);
+    this.goBack = this.goBack.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.updateText = this.updateText.bind(this);
   }
 
   makeRequest(e) {

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import kanjis from './styles/KanjiList.module.css';
 import { defineFilter } from '../helpers';
@@ -8,6 +8,10 @@ import NothingFound from './NothingFound';
 const FilterSort = ({
   state, clickHandler, filter, sorting, history, loadVisible,
 }) => {
+  useEffect(() => {
+    loadVisible();
+  }, [state]);
+
   let elements = state.subscription;
 
   if (elements && sorting < 0) {

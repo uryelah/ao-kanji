@@ -20,9 +20,9 @@ class SearchBar extends Component {
     };
 
     this.makeRequest = makeRequest;
-    this.handleKeyDown.bind(this);
-    this.handleClick.bind(this);
-    this.handleChange.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -79,7 +79,10 @@ function mapStateToProps(state) {
 
 function mapActionsToProps(dispatch) {
   return {
-    actions: bindActionCreators({ ...SubscriptionActions, dispatch }),
+    // eslint-disable-next-line prefer-object-spread
+    actions: bindActionCreators(Object.assign(
+      {}, SubscriptionActions,
+    ), dispatch),
   };
 }
 
