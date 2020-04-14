@@ -2,4 +2,129 @@
   box-sizing: border-box;
   font-family: 'Noto Sans JP', sans-serif;
   padding: 25px 20px;
+  color: #ffffffdd;
+}
+
+.video {
+  position: relative;
+  z-index: 100;
+}
+
+.poster {
+  background-image: linear-gradient(to bottom, #4369b299, #4369b299), linear-gradient(to bottom, transparent 49%, #1d407a 50%, transparent 50%), linear-gradient(to left, transparent 49%, #1d407a 50%, transparent 50%);
+  border: 1px solid grey;
+  box-shadow: 1px 1px 0 2px black, 8px 8px 3px 0 #000000bb;
+  left: 0;
+  mix-blend-mode: darken;
+  opacity: 0.2;
+  position: absolute;
+  top: 20px;
+  width: 240px;
+  z-index: 110;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: max-content;
+  padding: 20px 0 30px 0;
+  position: relative;
+}
+
+.top {
+  display: grid;
+  flex-basis: 50%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.block h3 {
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.block p {
+  color: #fffff5;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px #4369b2;
+}
+
+.meaning {
+  align-items: last baseline;
+  display: flex;
+  justify-content: center;
+}
+
+.meaning, .examples {
+  background-color: #4b75c4;
+  box-shadow: -20px 0 0 0 #4b75c4, 20px 0 0 0 #4b75c4;
+}
+
+.meaning h1 {
+  font-size: 2.75rem;
+  margin: 15px;
+}
+
+.meaning h2 {
+  font-weight: 400;
+}
+
+.meaning h2 span {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.meaning h2 .yomi:first-of-type::after {
+  content: ',';
+  margin-left: 5px;
+}
+
+.stroke_title {
+  color: #4b75c4;
+  margin: 30px 0 10px 10px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.strokes {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  padding: 10px 10px 20px 10px;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.stroke {
+  background-color: #e8edf5;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 10px;
+  width: 90px;
+  height: 90px;
+  transition: 0.25s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.stroke:hover {
+  transform: scale(1.1);
+}
+
+.stroke:first-child {
+  margin-left: 0;
+}
+
+.examples ul {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.examples li {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  width: 100%;
 }

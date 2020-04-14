@@ -10,6 +10,10 @@ import * as SubscriptionActions from '../actions/subscription';
 const KanjiDetail = props => {
   const { state, match } = props;
 
+  setTimeout(() => {
+    console.log(state);
+  }, 2000);
+
   useEffect(() => {
     const url = `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${match.params.kanji}`;
     const options = {
@@ -25,35 +29,52 @@ const KanjiDetail = props => {
 
   const details = () => (
     <>
-      <video width="320" height="240" autoPlay loop>
-        <track src="" kind="captions" srcLang="en" label="no_captions" />
-        <source src={state.subscription.kanji.video.mp4} type="video/mp4" />
-        <source src={state.subscription.kanji.video.webm} type="video/ogg" />
-        Your browser does not support the video tag.
-      </video>
-      <h1>{state.subscription.kanji.character}</h1>
-      <h3>
-        {state.subscription.kanji.kunyomi.hiragana}
-        {' '}
-        -
-        {' '}
-        {state.subscription.kanji.onyomi.katakana}
-      </h3>
-      <h2>{state.subscription.kanji.meaning.english}</h2>
-      <hr />
-      <article>
-        Strokes
-        <div>
-          {state.subscription.kanji.strokes.images.map(image => <img key={image} src={image} width="60" alt="kanji_stroke" />)}
+      <header className={kanji.header}>
+        <img className={kanji.poster} src={state.subscription.kanji.video.poster} alt="video poster" />
+        <video className={kanji.video} width="240" height="240" autoPlay loop>
+          <track src="" kind="captions" srcLang="en" label="no_captions" />
+          <source src={state.subscription.kanji.video.mp4} type="video/mp4" />
+          <source src={state.subscription.kanji.video.webm} type="video/ogg" />
+          Your browser does not support the video tag.
+        </video>
+        <div className={kanji.top}>
+          <div className={kanji.block}>
+            <h3>Strokes</h3>
+            <p>{state.subscription.kanji.strokes.count}</p>
+          </div>
+          <div className={kanji.block}>
+            <h3>Radical</h3>
+            <p>{state.subscription.radical.character}</p>
+          </div>
+          <div className={kanji.block}>
+            <h3>Kunyomi</h3>
+            <p>{state.subscription.kanji.kunyomi.hiragana}</p>
+          </div>
+          <div className={kanji.block}>
+            <h3>Onyomi</h3>
+            <p>{state.subscription.kanji.onyomi.katakana}</p>
+          </div>
         </div>
-      </article>
-      <hr />
-      <strong>
-        Radical:
-        {state.subscription.radical.character}
-      </strong>
-      <hr />
-      <article>
+      </header>
+      <aside className={kanji.meaning}>
+        <h1>{state.subscription.kanji.character}</h1>
+        <h2>
+          (
+          <span className={kanji.yomi}>{state.subscription.kanji.kunyomi.romaji}</span>
+          <span className={kanji.yomi}>{state.subscription.kanji.onyomi.romaji}</span>
+          )
+          <span>-</span>
+          {state.subscription.kanji.meaning.english}
+        </h2>
+      </aside>
+
+      <aside>
+        <h3 className={kanji.stroke_title}>Stroke order:</h3>
+        <div className={kanji.strokes}>
+          {state.subscription.kanji.strokes.images.map(image => <img className={kanji.stroke} key={image} src={image} width="60" alt="kanji_stroke" />)}
+        </div>
+      </aside>
+      <article className={kanji.examples}>
         <h3>Examples</h3>
         <ul>
           {state.subscription.examples.map(example => (
