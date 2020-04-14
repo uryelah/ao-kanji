@@ -31,7 +31,7 @@ const KanjiDetail = props => {
     <>
       <header className={kanji.header}>
         <img className={kanji.poster} src={state.subscription.kanji.video.poster} alt="video poster" />
-        <video className={kanji.video} width="240" height="240" autoPlay loop>
+        <video className={kanji.video} autoPlay loop>
           <track src="" kind="captions" srcLang="en" label="no_captions" />
           <source src={state.subscription.kanji.video.mp4} type="video/mp4" />
           <source src={state.subscription.kanji.video.webm} type="video/ogg" />
@@ -59,12 +59,14 @@ const KanjiDetail = props => {
       <aside className={kanji.meaning}>
         <h1>{state.subscription.kanji.character}</h1>
         <h2>
-          (
-          <span className={kanji.yomi}>{state.subscription.kanji.kunyomi.romaji}</span>
-          <span className={kanji.yomi}>{state.subscription.kanji.onyomi.romaji}</span>
-          )
-          <span>-</span>
-          {state.subscription.kanji.meaning.english}
+          <span className={kanji.readings}>
+            <span className={kanji.yomi}>{state.subscription.kanji.kunyomi.romaji}</span>
+          </span>
+          <span className={kanji.readings}>
+            <span className={kanji.yomi}>{state.subscription.kanji.onyomi.romaji}</span>
+          </span>
+          <span>·</span>
+          <span>{state.subscription.kanji.meaning.english}</span>
         </h2>
       </aside>
 
@@ -79,22 +81,29 @@ const KanjiDetail = props => {
         <ul>
           {state.subscription.examples.map(example => (
             <li key={example.japanese + example.english}>
-              <strong>{example.japanese}</strong>
-              {' '}
-              -
-              <em>{example.meaning.english}</em>
-              <div>
-                <audio controls>
-                  <track src="" kind="captions" srcLang="en" label="no_captions" />
-                  <source src={example.audio.mp3} type="audio/mp3" />
-                  <source src={example.audio.aac} type="audio/aac" />
-                  <source src={example.audio.ogg} type="audio/ogg" />
-                </audio>
-              </div>
+              <p className={kanji.example}>
+                <strong>{example.japanese}</strong>
+                {' · '}
+                <em>{example.meaning.english}</em>
+              </p>
+              <audio className={kanji.audio} controls>
+                <track src="" kind="captions" srcLang="en" label="no_captions" />
+                <source src={example.audio.mp3} type="audio/mp3" />
+                <source src={example.audio.aac} type="audio/aac" />
+                <source src={example.audio.ogg} type="audio/ogg" />
+              </audio>
             </li>
           ))}
         </ul>
       </article>
+      <footer className={kanji.references}>
+        <h4>References</h4>
+        <ul>
+          <li>Grade: <strong className={kanji.chapter}>{state.subscription.references.grade}</strong></li>
+          <li>Kodansha: <strong className={kanji.chapter}>{state.subscription.references.kodansha}</strong></li>
+          <li>Classic Nelson: <strong className={kanji.chapter}>{state.subscription.references.classic_nelson}</strong></li>
+        </ul>
+      </footer>
     </>
   );
 
