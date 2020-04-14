@@ -10,10 +10,6 @@ import * as SubscriptionActions from '../actions/subscription';
 const KanjiDetail = props => {
   const { state, match } = props;
 
-  setTimeout(() => {
-    console.log(state);
-  }, 2000);
-
   useEffect(() => {
     const url = `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${match.params.kanji}`;
     const options = {
@@ -115,8 +111,8 @@ const KanjiDetail = props => {
   );
 };
 
-function mapStateToProps(state) {
-  return state;
+function mapStateToProps({ state, group }) {
+  return { state: { ...state, ...group } };
 }
 
 function mapActionsToProps(dispatch) {

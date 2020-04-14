@@ -120,8 +120,8 @@ class NavBar extends Component {
   };
 };
 
-function mapStateToProps(state) {
-  return state;
+function mapStateToProps({ state, group }) {
+  return { state: { ...state, ...group } };
 }
 
 function mapActionsToProps(dispatch) {

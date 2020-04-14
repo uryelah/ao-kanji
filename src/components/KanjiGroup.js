@@ -53,8 +53,8 @@ const KanjiGroup = props => {
   );
 };
 
-function mapStateToProps(state) {
-  return state;
+function mapStateToProps({ state, group }) {
+  return { state: { ...state, ...group } };
 }
 
 KanjiGroup.propTypes = {

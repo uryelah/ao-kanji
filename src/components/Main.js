@@ -15,9 +15,9 @@ const MainComponent = props => {
         <h1>{pageTitle[groupBy.length][0]}</h1>
         <label className="App__header__label" htmlFor="select-group">Group kanji by:</label>
         <select id="select-group" className="App__header__select" onChange={e => handleSelect(e, actions)}>
-          <option selected={groupBy.length === 6} name="grade">Grade</option>
-          <option selected={groupBy.length === 11} name="macquarie">Macquarie</option>
-          <option selected={groupBy.length === 20} name="ap">AP exam</option>
+          <option defaultValue={groupBy.length === 6} name="grade">Grade</option>
+          <option defaultValue={groupBy.length === 11} name="macquarie">Macquarie</option>
+          <option defaultValue={groupBy.length === 20} name="ap">AP exam</option>
         </select>
       </header>
 
