@@ -21,7 +21,7 @@
   <p align="center">
     A simple one page kanji study webapp
     <br />
-    <a href="https://uryelah.github.io/"><strong>Use it live here »</strong></a>
+    <a href="https://uryelah.github.io/ao-kanji/"><strong>Use it live here »</strong></a>
     <br />
     <br />
     <a href="https://github.com/uryelah/ao-kanji/issues">Report Bug</a>
@@ -49,32 +49,53 @@
 
 ## About
 
-This project was about making a shooter game, similar to space asteroids, using the Phaser3 Javascript game engine.
+This project was built as the React capstone for the Microverse curriculum.
 
-In this project I implemented a game with projectiles comming both from and towards the player, player sprite movement, enemy 'downward' movement and collisions, with an oceanic theme.
+It consists of a single page application with client side routing, API consumption and state managed by redux.
 
-Project requirements [here](https://www.notion.so/Shooter-game-203e819041c7486bb36f9e65faecba27).
+This project requires no authentication, it's a catalogue, with filter, sorting and details features.
+
+To read the full project requirements visit [this link](https://www.notion.so/Catalogue-of-Statistics-72446e7fa33c403a9b6a0bc1de5c6cf5).
 
 Repository: https://github.com/uryelah/ao-kanji
 
 ## About The App
 
-**From the depths** consists of a shooter game with the twist that it happens under the sea instead of the in space.
+**Ao Kanji** consists of a single page web app for browsing, searching and studying Japanese Kanji.
 
-You control an ancient, squid-like, sea creature that has their domains invaded by humans, much to its demise. 
+>Kanji (漢字, pronounced [kaɲdʑi] (About this soundlisten)) are the adopted logographic Chinese characters that are used in the Japanese writing system. They are used alongside the Japanese syllabic scripts hiragana and katakana.
 
-The games object is to get points from eliminating the humans and its machines, while keeping your hp, or health points, above zero.
+_[From wikipedia](Kanji)_
 
-All the art feature in this game is original if not indicated otherwise at the Attributions section.
+For this project I chose a free API that serves kanji lists and details, including examples of usage and pronunciation, in the app it's possible to browse a pre-defined list of kanjis or do you own search based on a latin alphabeth word.
 
 **Features**
 
-- Shoot stuff!
-- Eat fish!
-- Squeeze humans slowly to their death!
-- Battle a submarine!
-- Wiggle a tentacle around
-- Check if your score at the top of the LeaderBoard!
+- Loading visual feedback between data fetch requests
+
+- Fetching kanji lists from different API endpoints
+
+- "Back" button at the navbar to browse through past searches
+
+- Mobile first design
+
+- Animate examples for the kanji stroke order
+
+- Audio examples for kanji pronunciation
+
+- Kun and On readings
+
+- Kanji english translation
+
+- Centralised state for fetched kanji data
+
+- Centralised state for kanji list sorting and filtering
+
+- Unique client side routes
+
+- Use of react hooks
+
+- Use of CSS modules and BEM
 
 -----
 
@@ -82,47 +103,58 @@ All the art feature in this game is original if not indicated otherwise at the A
 
 [![Product Name Screen Shot][product-screenshot]](https://uryelah.github.io/ao-kanji/)
 
-This game is completelly controlled with your mouse or touch pad.
+1. Select how you want to group the kanji lists
 
-To start choose your name, it will be used to save your score at the end.
+2. Click in a kanji list by grade or chapter
 
-Move your mouse and your character tentacle will follow it.
+3. Filter the kanji by stroke order
 
-Click to shoot bubbles at humans and their submarines.
+4. Sort the kanji list
 
-Click and hold to squeeze humans to death or to eat fish and get more hp.
+5. Select one of the kanji in the list
 
-Click and hold while moving your cursor, for less time, to carry a human around.
+6. Read the details, reading, stroke order, examples, of the chosen kanji
 
-Avoid human projectiles or carry a dumb humans to use as your shield, good for a maximum of two shots.
+7. Use the navigation bar to go back
 
-Avoid the submarine ray attacks.
+8. Use the search bar to look for a kanji linked to a word of your chosing
 
-The game starts very slow but gets harder and harder with time, so good luck staying alive ;-)
+9. Keeping browsing and learning
 
 ## Views
 
-This game consists of four scenes:
+This app includes 4 different view:
 
-- The Main Menu scene
-This scene takes you to the Leader Board scene and the Main Game scene.
-<img src='./assets/Screenshot_2020-04-06 From the depths .png' width='300'>
+- Landing page
+<br/>
+<img src='./public/mobile_landing.png' width='300'>
 
-- The Main Game scene
-In this scene you can play the actual game and it takes you to the Game Over scene if your hp drops to 0 points.
-<img src='./assets/Screenshot_2020-04-06 From the depths (2).png' width='300'>
+- Kanji list page
+<br/>
+<img src='./public/mobile_list.png' width='300'>
 
-- The Game Over scene
-This scene appears on losing the Game and has a button to refresh the page and play again.
-<img src='./assets/Screenshot_2020-04-06 From the depths (3).png' width='300'>
+- Kanji search page
+<br/>
+<img src='./public/mobile_search.png' width='300'>
 
-- The Leader Board scene
-This scene is accessed from the Main Menu and has a link back to it. It shows the top 15 scores recorded in the API.
-<img src='./assets/Screenshot_2020-04-06 From the depths (1).png' width='300'>
+- Kanji details page
+<br/>
+<img src='./public/mobile_details.png' width='300'>
+
+-------
 
 ## Routes
 
-routes info
+| Route | Description |
+|---------|-------------|
+| `/` | Root route, you can select a kanji list from here |
+| `/grade/:<NUMBER>` | List route, you can select kanji lists by grade level here |
+| `/chapter/:<NUMBER>` | List route, you can select kanji lists by Macquarie chapters here |
+| `/ap-chapter/:<NUMBER>` | List route, you can select kanji lists by AP chapters here |
+| `/search/:<STRING>` | Search route, you can select kanji fitting the query string
+| `/kanjis/:<KANJI>` | Details route, you can see information about a specific kanji here
+
+-------
 
 ## Prerequisites
 
@@ -213,4 +245,4 @@ This project was only possible thanks to the cretors bellow:
 [license-url]: https://github.com/uryelah/ao-kanji/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/uryelah/
-[product-screenshot]: ./assets/gameplay.gif
+[product-screenshot]: ./public/aokanji.gif
