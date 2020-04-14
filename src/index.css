@@ -28,3 +28,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.out_of_view {
+  opacity: 0 !important;
+}

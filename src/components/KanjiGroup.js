@@ -18,6 +18,9 @@ const KanjiGroup = props => {
         <span className="card__title__top-left--round">
           {grade}
         </span>
+        <span className="card__title__top-left">
+          <i class="far fa-arrow-alt-circle-right" onClick={() => handleClick(grade, group, history, state)}></i>  
+        </span>
         <span className="card__title__bottom-left">
           <button className="card__btn" type="button" onClick={() => handleClick(grade, group, history, state)}>
             <span>

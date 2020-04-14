@@ -86,6 +86,12 @@
   right: 5px;
 }
 
+[class*=top-left] {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 [class*=card__title] *:first-child {
   font-weight: 900;
 }

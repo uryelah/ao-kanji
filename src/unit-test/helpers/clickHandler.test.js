@@ -8,8 +8,8 @@ it('is has 3 parameters', () => {
   expect(clickHandler.length).toBe(3);
 });
 
-let history = (() => {
-  let arr = []
+const history = (() => {
+  const arr = [];
 
   return ({
     push: (str, obj) => {

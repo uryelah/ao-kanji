@@ -13,8 +13,8 @@ let actionsColateral = false;
 const actions = {
   fetchSubscription: () => {
     actionsColateral = true;
-  }
-}
+  },
+};
 
 it('calls its first paramter fetchSubscription property', () => {
   fetchKanjiGroup(actions, 2, 'grade');

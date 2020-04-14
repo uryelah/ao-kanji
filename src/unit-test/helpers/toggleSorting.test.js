@@ -18,12 +18,12 @@ const event = {
   },
   stopPropagation: () => {
     propagation = false;
-  }
+  },
 };
 
-const toggleSort = (n) => {
+const toggleSort = n => {
   toggleSortingColateral = n;
-}
+};
 
 it('calls a stopPropagation property from the first parameter', () => {
   toggleSorting(event, 1, toggleSort);

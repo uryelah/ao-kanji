@@ -16,7 +16,7 @@ const event = {
   },
   stopPropagation: () => {
     propagation = false;
-  }
+  },
 };
 
 let actionColateral = null;
@@ -36,7 +36,7 @@ const actions = {
 it('call different functions from its second argument depending on the first argument', () => {
   event.target.value = 'grade';
 
-  handleSelect(event, actions)
+  handleSelect(event, actions);
 
   expect(actionColateral).toBe('grade');
 });
@@ -44,7 +44,7 @@ it('call different functions from its second argument depending on the first arg
 it('call different functions from its second argument depending on the first argument', () => {
   event.target.value = 'macquarie';
 
-  handleSelect(event, actions)
+  handleSelect(event, actions);
 
   expect(actionColateral).toBe('macquarie');
 });
@@ -52,7 +52,7 @@ it('call different functions from its second argument depending on the first arg
 it('call different functions from its second argument depending on the first argument', () => {
   event.target.value = 'ap exam';
 
-  handleSelect(event, actions)
+  handleSelect(event, actions);
 
   expect(actionColateral).toBe('ap exam');
 });

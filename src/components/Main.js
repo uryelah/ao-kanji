@@ -9,7 +9,7 @@ const MainComponent = props => {
   const { groupBy } = state;
 
   return (
-    <Fragment>
+    <>
       <header className={pageTitle[groupBy.length][1]}>
         <h1>{pageTitle[groupBy.length][0]}</h1>
         <label className="App__header__label" htmlFor="select-group">Group kanji by:</label>
@@ -28,7 +28,7 @@ const MainComponent = props => {
           })
         }
       </div>
-    </Fragment>
+    </>
   );
 };
 

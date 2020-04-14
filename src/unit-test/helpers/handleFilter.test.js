@@ -13,12 +13,12 @@ let mockDefault = true;
 const event = {
   preventDefault: () => {
     mockDefault = false;
-  }
+  },
 };
 
 const input = {
   value: '2',
-}
+};
 
 let handleFilterColateral = 7;
 
@@ -26,7 +26,7 @@ const filterCallback = n => n * 2;
 
 const updateFilter = (n, callback) => {
   handleFilterColateral = callback(n);
-}
+};
 
 it('calls its first parameter preventDefault property', () => {
   handleFilter(event, input, updateFilter, filterCallback);

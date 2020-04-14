@@ -10,9 +10,9 @@ it('is has 3 parameters', () => {
 
 let updateFilterColateral = null;
 
-const filterBy = (n) => {
+const filterBy = n => {
   updateFilterColateral = n;
-}
+};
 
 it('calls a the second parameter with the first parameter as an argument (I)', () => {
   updateFilter(2, filterBy);

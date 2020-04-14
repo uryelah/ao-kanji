@@ -29,7 +29,7 @@ const KanjiDetail = props => {
   }, []);
 
   const details = () => (
-    <Fragment>
+    <>
       <video width="320" height="240" autoPlay loop>
         <source src={state.subscription.kanji.video.mp4} type="video/mp4" />
         <source src={state.subscription.kanji.video.webm} type="video/ogg" />
@@ -61,13 +61,14 @@ const KanjiDetail = props => {
         <h3>Examples</h3>
         <ul>
           {state.subscription.examples.map(example => (
-            <li>
+            <li key={example.japanese + example.english}>
               <strong>{example.japanese}</strong>
               {' '}
               -
               <em>{example.meaning.english}</em>
               <div>
                 <audio controls>
+                  <track/>
                   <source src={example.audio.mp3} type="audio/mp3" />
                   <source src={example.audio.aac} type="audio/aac" />
                   <source src={example.audio.ogg} type="audio/ogg" />
@@ -77,7 +78,7 @@ const KanjiDetail = props => {
           ))}
         </ul>
       </article>
-    </Fragment>
+    </>
   );
 
   return (
