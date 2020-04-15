@@ -101,7 +101,9 @@ For this project I chose a free API that serves kanji lists and details, includi
 
 ## Navigation
 
-[![Product Name Screen Shot][product-screenshot]](https://uryelah.github.io/ao-kanji/)
+<center>
+<img src='./public/aokanji.gif' alt='app navigation demo' width='300'>
+</center>
 
 1. Select how you want to group the kanji lists
 

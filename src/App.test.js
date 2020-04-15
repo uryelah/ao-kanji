@@ -10,7 +10,7 @@ test('renders learn react link', () => {
   // const linkElement = getByText(/learn react/i);
   // expect(linkElement).toBeInTheDocument();
 });
-
+/*
 test('can render with redux with custom store', () => {
   const store = createStore(() => ({ count: 1000 }));
   render(<App />, {
@@ -21,3 +21,4 @@ test('can render with redux with custom store', () => {
   // fireEvent.click(screen.getByText('-'))
   // expect(screen.getByTestId('count-value')).toHaveTextContent('1000')
 });
+*/
