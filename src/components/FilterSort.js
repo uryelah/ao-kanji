@@ -14,7 +14,7 @@ const FilterSort = ({
 
   let elements = state.subscription;
 
-  if (elements && sorting < 0) {
+  if (elements && elements.length && sorting < 0) {
     elements = [...elements].reverse();
   }
 
