@@ -20,7 +20,7 @@ const App = props => {
     <main className={style.App}>
       <NavBar />
       <Switch>
-        <Route path="/" render={() => <MainComponent {...{ actions, state }} />} exact />
+        <Route path="/ao-kanji/" render={() => <MainComponent {...{ actions, state }} />} exact />
         <Route path="/(grade|chapter|ap-chapter)/:grade_num" component={KanjiList} exact />
         <Route path="/search/:word" component={KanjiList} exact />
         <Route path="/kanjis/:kanji" component={KanjiDetail} exact />

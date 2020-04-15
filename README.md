@@ -147,7 +147,7 @@ This app includes 4 different view:
 
 | Route | Description |
 |---------|-------------|
-| `/` | Root route, you can select a kanji list from here |
+| `/ao-kanji` | Root route, you can select a kanji list from here |
 | `/grade/:<NUMBER>` | List route, you can select kanji lists by grade level here |
 | `/chapter/:<NUMBER>` | List route, you can select kanji lists by Macquarie chapters here |
 | `/ap-chapter/:<NUMBER>` | List route, you can select kanji lists by AP chapters here |
