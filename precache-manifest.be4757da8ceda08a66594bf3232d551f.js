@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d7a7bf9750f8fef670821b5e9ed65a7",
+    "revision": "07e5c19278ca6d177e7309fc60eab709",
     "url": "/ao-kanji/index.html"
   },
   {
-    "revision": "7375ed799a0e473438e7",
-    "url": "/ao-kanji/static/css/main.94aa86d5.chunk.css"
+    "revision": "b25c2a0a42c4ac15c897",
+    "url": "/ao-kanji/static/css/main.1098becd.chunk.css"
   },
   {
     "revision": "fc6cf54472af123d2fba",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ao-kanji/static/js/2.f98dc233.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7375ed799a0e473438e7",
-    "url": "/ao-kanji/static/js/main.8af5137b.chunk.js"
+    "revision": "b25c2a0a42c4ac15c897",
+    "url": "/ao-kanji/static/js/main.64842be0.chunk.js"
   },
   {
     "revision": "5c20258e1d4a25314224",
