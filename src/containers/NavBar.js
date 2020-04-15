@@ -75,7 +75,6 @@ class NavBar extends Component {
       }
   
       this.props.actions.fetchSubscription(url, options);
-
     }
   }
 
@@ -104,7 +103,7 @@ class NavBar extends Component {
 
   updateText() {
     this.setState({
-      text: 'ball',
+      text: '',
     })
   }
 
@@ -113,7 +112,7 @@ class NavBar extends Component {
     return (
       <nav className={navbar.nav}>
         <Link to="/ao-kanji/" className={navbar.logo}><span className={navbar.logo__kanji}>青</span>KANJI</Link>
-        { this.props.location.pathname !== '/' && <i role="button" tabIndex={-1} aria-label="Back to last page" onClick={this.clickHandler} onKeyDown={e => this.handleKeyDown(e)} className={navIcon} />}
+        { this.props.location.pathname !== '/ao-kanji/' && <i role="button" tabIndex={-1} aria-label="Back to last page" onClick={this.clickHandler} onKeyDown={e => this.handleKeyDown(e)} className={navIcon} />}
         <SearchBar key={this.state.text} updateText={this.updateText} state={this.state} text={this.state.text} makeRequest={this.makeRequest} />
       </nav>
     );
