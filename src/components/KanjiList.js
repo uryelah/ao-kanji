@@ -18,11 +18,13 @@ import {
 const KanjiList = props => {
   const thisRef = useRef(null);
 
-  useEffect(() => {
-    if (props.match.params.grade_num) {
-      makeRequest(props);
-    }
-  }, []);
+  const { match } = props;
+
+  const isLoaded = match.params.grade_num ? makeRequest : null;
+
+  const makeFetch = () => makeRequest(props);
+
+  useEffect(makeFetch, [isLoaded]);
 
   const handleScroll = () => {
     [...thisRef.current.children].map(child => {
