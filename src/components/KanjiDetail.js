@@ -10,7 +10,7 @@ import * as SubscriptionActions from '../actions/subscription';
 const KanjiDetail = props => {
   const { state, match } = props;
 
-  useEffect(() => {
+  const makeFetch = () => {
     const url = `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${match.params.kanji}`;
     const options = {
       method: 'GET',
@@ -21,7 +21,9 @@ const KanjiDetail = props => {
     };
 
     props.actions.fetchSubscription(url, options);
-  }, []);
+  };
+
+  useEffect(makeFetch, []);
 
   const details = () => (
     <>

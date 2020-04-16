@@ -61,8 +61,13 @@ FilterSort.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   clickHandler: PropTypes.func.isRequired,
   loadVisible: PropTypes.func.isRequired,
-  filter: PropTypes.number.isRequired,
-  sorting: PropTypes.number.isRequired,
+  filter: PropTypes.number,
+  sorting: PropTypes.number,
+};
+
+FilterSort.defaultProps = {
+  filter: null,
+  sorting: 1,
 };
 
 export default FilterSort;
