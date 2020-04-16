@@ -10,7 +10,7 @@ const FilterSort = ({
 }) => {
   useEffect(() => {
     loadVisible();
-  }, [state]);
+  }, [state, loadVisible]);
 
   let elements = state.subscription;
 
