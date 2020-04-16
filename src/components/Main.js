@@ -14,10 +14,10 @@ const MainComponent = props => {
       <header className={pageTitle[groupBy.length][1]}>
         <h1>{pageTitle[groupBy.length][0]}</h1>
         <label className="App__header__label" htmlFor="select-group">Group kanji by:</label>
-        <select id="select-group" className="App__header__select" onChange={e => handleSelect(e, actions)}>
-          <option selected={groupBy.length === 6} name="grade">Grade</option>
-          <option selected={groupBy.length === 11} name="macquarie">Macquarie</option>
-          <option selected={groupBy.length === 20} name="ap">AP exam</option>
+        <select defaultValue={groupBy.length} id="select-group" className="App__header__select" onChange={e => handleSelect(e, actions)}>
+          <option value={groupBy.length === 6 ? groupBy.length : 'grade'} name="grade">Grade</option>
+          <option value={groupBy.length === 11 ? groupBy.length : 'macquarie'} name="macquarie">Macquarie</option>
+          <option value={groupBy.length === 20 ? groupBy.length : 'ap exam'} name="ap">AP exam</option>
         </select>
       </header>
 
