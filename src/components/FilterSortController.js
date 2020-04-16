@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import './styles/FilterSortController.css';
+import '../styles/FilterSortController.css';
 import { isOn, handleFilter as handleClick } from '../helpers';
 
 const FilterSortController = ({

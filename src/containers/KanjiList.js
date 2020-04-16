@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import kanji from './styles/KanjiList.module.css';
+import kanji from '../styles/KanjiList.module.css';
 
-import FilterSort from './FilterSort';
-import FilterSortController from './FilterSortController';
-import Loader from './Loader';
+import FilterSort from '../components/FilterSort';
+import FilterSortController from '../components/FilterSortController';
+import Loader from '../components/Loader';
 
 import * as SubscriptionActions from '../actions/subscription';
 

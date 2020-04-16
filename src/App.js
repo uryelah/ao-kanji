@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 import style from './App.module.css';
 import MainComponent from './components/Main';
 import NavBar from './containers/NavBar';
-import KanjiList from './components/KanjiList';
-import KanjiDetail from './components/KanjiDetail';
+import KanjiList from './containers/KanjiList';
+import KanjiDetail from './containers/KanjiDetail';
 
 import * as SubscriptionActions from './actions/subscription';
 

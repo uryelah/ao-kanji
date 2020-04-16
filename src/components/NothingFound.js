@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import mu from './styles/NothingFound.module.css';
+import mu from '../styles/NothingFound.module.css';
 
 const NothingFound = () => (
   <div className={mu.container}>

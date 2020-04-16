@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles/KanjiGroup.css';
+import '../styles/KanjiGroup.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { handleClick, fetchKanjiGroup } from '../helpers';

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import kanji from './styles/KanjiDetail.module.css';
-import Loader from './Loader';
+import kanji from '../styles/KanjiDetail.module.css';
+import Loader from '../components/Loader';
 
 import * as SubscriptionActions from '../actions/subscription';
 

@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
-import KanjiGroup from './KanjiGroup';
-import './styles/Main.css';
+import KanjiGroup from '../containers/KanjiGroup';
+import '../styles/Main.css';
 import { pageTitle, handleSelect } from '../helpers';
 
 const MainComponent = props => {

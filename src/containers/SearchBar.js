@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import search from './styles/SearchBar.module.css';
+import search from '../styles/SearchBar.module.css';
 
 import * as SubscriptionActions from '../actions/subscription';
 
