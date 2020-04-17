@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ao-kanji/static/css/main.df5af3b5.chunk.css",
-    "main.js": "/ao-kanji/static/js/main.1cfc4512.chunk.js",
-    "main.js.map": "/ao-kanji/static/js/main.1cfc4512.chunk.js.map",
+    "main.js": "/ao-kanji/static/js/main.7a16dc25.chunk.js",
+    "main.js.map": "/ao-kanji/static/js/main.7a16dc25.chunk.js.map",
     "runtime-main.js": "/ao-kanji/static/js/runtime-main.79f02abc.js",
     "runtime-main.js.map": "/ao-kanji/static/js/runtime-main.79f02abc.js.map",
     "static/js/2.f98dc233.chunk.js": "/ao-kanji/static/js/2.f98dc233.chunk.js",
     "static/js/2.f98dc233.chunk.js.map": "/ao-kanji/static/js/2.f98dc233.chunk.js.map",
     "index.html": "/ao-kanji/index.html",
-    "precache-manifest.e376e44d9d2a9e5072872c69d3a3a264.js": "/ao-kanji/precache-manifest.e376e44d9d2a9e5072872c69d3a3a264.js",
+    "precache-manifest.48300d7de62b079ac4d13ccad478b2bc.js": "/ao-kanji/precache-manifest.48300d7de62b079ac4d13ccad478b2bc.js",
     "service-worker.js": "/ao-kanji/service-worker.js",
     "static/css/main.df5af3b5.chunk.css.map": "/ao-kanji/static/css/main.df5af3b5.chunk.css.map",
     "static/js/2.f98dc233.chunk.js.LICENSE.txt": "/ao-kanji/static/js/2.f98dc233.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.79f02abc.js",
     "static/js/2.f98dc233.chunk.js",
     "static/css/main.df5af3b5.chunk.css",
-    "static/js/main.1cfc4512.chunk.js"
+    "static/js/main.7a16dc25.chunk.js"
   ]
 }
