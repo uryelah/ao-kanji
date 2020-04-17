@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import style from './App.module.css';
+import style from './styles/App.module.css';
 import MainComponent from './components/Main';
 import NavBar from './containers/NavBar';
 import KanjiList from './containers/KanjiList';

@@ -113,7 +113,7 @@ class NavBar extends Component {
     const { props, state } = this;
     const navIcon = `fas fa-chevron-left ${navbar.ico}`;
     return (
-      <nav className={navbar.nav}>
+      <nav data-testid="navbar" className={navbar.nav}>
         <Link to="/ao-kanji/" className={navbar.logo}>
           <span className={navbar.logo__kanji}>青</span>
           KANJI

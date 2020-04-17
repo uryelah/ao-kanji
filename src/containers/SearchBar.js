@@ -65,8 +65,9 @@ class SearchBar extends Component {
 
     return (
       <>
-        <input id="search-bar" ref={inputRef} value={state.text} onKeyDown={e => handleKeyDown(e)} onChange={handleChange} tabIndex={0} className={search.nav__search} type="text" placeholder="Search..." required />
+        <input data-testid="search-input" id="search-bar" ref={inputRef} value={state.text} onKeyDown={e => handleKeyDown(e)} onChange={handleChange} tabIndex={0} className={search.nav__search} type="text" placeholder="Search..." required />
         <i
+          data-testid="search-ico"
           onClick={handleClick}
           className={iconClass}
           role="button"

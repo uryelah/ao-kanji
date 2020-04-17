@@ -11,7 +11,7 @@ const MainComponent = props => {
 
   return (
     <>
-      <header className={pageTitle[groupBy.length][1]}>
+      <header data-testid="header" className={pageTitle[groupBy.length][1]}>
         <h1>{pageTitle[groupBy.length][0]}</h1>
         <label className="App__header__label" htmlFor="select-group">Group kanji by:</label>
         <select defaultValue={groupBy.length} id="select-group" className="App__header__select" onChange={e => handleSelect(e, actions)}>
@@ -21,7 +21,7 @@ const MainComponent = props => {
         </select>
       </header>
 
-      <div className="group group--r-2">
+      <div data-testid="group" className="group group--r-2">
         {
           state.groupBy.map((n, i) => {
             const dark = (i + 1) % 4 <= 1 ? 'card--light' : '';

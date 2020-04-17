@@ -22,7 +22,7 @@ const FilterSortController = ({
   };
 
   return (
-    <header className="filter-sort-bar">
+    <header data-testid="sort-bar" className="filter-sort-bar">
       <div>
         <i
           className={isOn(-1, sorting)}

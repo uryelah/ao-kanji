@@ -38,6 +38,7 @@ const FilterSort = ({
           }
           return (
             <article
+              data-testid={kanji.kanji.character}
               onClick={() => clickHandler(kanji.kanji.character, history, state)}
               onKeyDown={e => handleKeyDown(e, kanji)}
               className={kanjiClass}
