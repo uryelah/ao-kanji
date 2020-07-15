@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import search from './styles/SearchBar.module.css';
+import search from '../styles/SearchBar.module.css';
 
 import * as SubscriptionActions from '../actions/subscription';
 
@@ -32,11 +32,17 @@ class SearchBar extends Component {
   handleKeyDown(e) {
     if (e.keyCode === 13) {
       this.makeRequest(e);
+      this.setState({
+        text: '',
+      });
     }
   }
 
   handleClick() {
     this.makeRequest({ target: { value: this.inputRef.current.value } });
+    this.setState({
+      text: '',
+    });
   }
 
   handleChange(e) {
@@ -59,8 +65,9 @@ class SearchBar extends Component {
 
     return (
       <>
-        <input ref={inputRef} value={state.text} onKeyDown={e => handleKeyDown(e)} onChange={handleChange} tabIndex={0} className={search.nav__search} type="text" placeholder="Search by: kanji, word, kana..." required />
+        <input data-testid="search-input" id="search-bar" ref={inputRef} value={state.text} onKeyDown={e => handleKeyDown(e)} onChange={handleChange} tabIndex={0} className={search.nav__search} type="text" placeholder="Search..." required />
         <i
+          data-testid="search-ico"
           onClick={handleClick}
           className={iconClass}
           role="button"

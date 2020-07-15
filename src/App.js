@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import style from './App.module.css';
+import style from './styles/App.module.css';
 import MainComponent from './components/Main';
 import NavBar from './containers/NavBar';
-import KanjiList from './components/KanjiList';
-import KanjiDetail from './components/KanjiDetail';
+import KanjiList from './containers/KanjiList';
+import KanjiDetail from './containers/KanjiDetail';
 
 import * as SubscriptionActions from './actions/subscription';
 
@@ -20,7 +20,7 @@ const App = props => {
     <main className={style.App}>
       <NavBar />
       <Switch>
-        <Route path="/" render={() => <MainComponent {...{ actions, state }} />} exact />
+        <Route path="/ao-kanji/" render={() => <MainComponent {...{ actions, state }} />} exact />
         <Route path="/(grade|chapter|ap-chapter)/:grade_num" component={KanjiList} exact />
         <Route path="/search/:word" component={KanjiList} exact />
         <Route path="/kanjis/:kanji" component={KanjiDetail} exact />

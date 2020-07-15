@@ -1,68 +1,250 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
 
-In the project directory, you can run:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://uryelah.github.io/ao-kanji/">
+    <img src="./public/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-### `yarn start`
+  <h1 align="center">
+    <a href="https://uryelah.github.io/ao-kanji/">
+    Ao Kanji
+    </a>
+  </h1>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <p align="center">
+    A simple one page kanji study webapp
+    <br />
+    <a href="https://uryelah.github.io/ao-kanji/"><strong>Use it live here »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/uryelah/ao-kanji/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/uryelah/ao-kanji/issues">Request Feature</a>
+  </p>
+</p>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-### `yarn test`
+* [About](#about)
+* [About the App](#about-the-app)
+* [Navigation](#navigation)
+* [Characters](#characters)
+* [Views](#views)
+* [Routes](#routes)
+* [Prerequisites](#prerequisites)
+* [Built With](#built-with)
+* [Commands](#available-commands)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+* [CopyRight/Attributions](#copyRight/Attributions)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## About
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was built as the React capstone for the Microverse curriculum.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+It consists of a single page application with client side routing, API consumption and state managed by redux.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project requires no authentication, it's a catalogue, with filter, sorting and details features.
 
-### `yarn eject`
+To read the full project requirements visit [this link](https://www.notion.so/Catalogue-of-Statistics-72446e7fa33c403a9b6a0bc1de5c6cf5).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Repository: https://github.com/uryelah/ao-kanji
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## About The App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Ao Kanji** consists of a single page web app for browsing, searching and studying Japanese Kanji.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+>Kanji (漢字, pronounced [kaɲdʑi] (About this soundlisten)) are the adopted logographic Chinese characters that are used in the Japanese writing system. They are used alongside the Japanese syllabic scripts hiragana and katakana.
 
-## Learn More
+_[From wikipedia](Kanji)_
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For this project I chose a free API that serves kanji lists and details, including examples of usage and pronunciation, in the app it's possible to browse a pre-defined list of kanjis or do you own search based on a latin alphabeth word.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Features**
 
-### Code Splitting
+- Loading visual feedback between data fetch requests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Fetching kanji lists from different API endpoints
 
-### Analyzing the Bundle Size
+- "Back" button at the navbar to browse through past searches
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Mobile first design
 
-### Making a Progressive Web App
+- Animate examples for the kanji stroke order
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Audio examples for kanji pronunciation
 
-### Advanced Configuration
+- Kun and On readings
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Kanji english translation
 
-### Deployment
+- Centralised state for fetched kanji data
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- Centralised state for kanji list sorting and filtering
 
-### `yarn build` fails to minify
+- Unique client side routes
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Use of react hooks
+
+- Use of CSS modules and BEM
+
+-----
+
+## Navigation
+
+<center>
+<img src='./public/aokanji.gif' alt='app navigation demo' width='300'>
+</center>
+
+1. Select how you want to group the kanji lists
+
+2. Click in a kanji list by grade or chapter
+
+3. Filter the kanji by stroke order
+
+4. Sort the kanji list
+
+5. Select one of the kanji in the list
+
+6. Read the details, reading, stroke order, examples, of the chosen kanji
+
+7. Use the navigation bar to go back
+
+8. Use the search bar to look for a kanji linked to a word of your chosing
+
+9. Keeping browsing and learning
+
+## Views
+
+This app includes 4 different view:
+
+- Landing page
+<br/>
+<img src='./public/mobile_landing.png' width='300'>
+
+- Kanji list page
+<br/>
+<img src='./public/mobile_list.png' width='300'>
+
+- Kanji search page
+<br/>
+<img src='./public/mobile_search.png' width='300'>
+
+- Kanji details page
+<br/>
+<img src='./public/mobile_details.png' width='300'>
+
+-------
+
+## Routes
+
+| Route | Description |
+|---------|-------------|
+| `/ao-kanji` | Root route, you can select a kanji list from here |
+| `/grade/:<NUMBER>` | List route, you can select kanji lists by grade level here |
+| `/chapter/:<NUMBER>` | List route, you can select kanji lists by Macquarie chapters here |
+| `/ap-chapter/:<NUMBER>` | List route, you can select kanji lists by AP chapters here |
+| `/search/:<STRING>` | Search route, you can select kanji fitting the query string
+| `/kanjis/:<KANJI>` | Details route, you can see information about a specific kanji here
+
+-------
+
+## Prerequisites
+
+If you want to...
+
+**View this app online**
+
+Simply access [this link](https://uryelah.github.io/ao-kanji/) and enjoy the game!
+
+**Run it locally**
+
+1. Make sure you have [node installed](https://nodejs.org/en/download/) in you local environment.
+
+2. Download or clone this repository
+
+3. Navigate to the game root directory in your terminal
+
+4. Install the required packages:
+```sh
+npm i
+```
+5. Start the game in your browser:
+```sh
+npm run start
+```
+
+------
+
+### Built With
+This project was built using the React SPA framework, consuming the data from the [Learn to read and write Japanese kanji API](https://rapidapi.com/KanjiAlive/api/learn-to-read-and-write-japanese-kanji/endpoints), together with Redux for state management.
+
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/javascript)
+* [Redux-thunk](https://github.com/reduxjs/redux-thunk)
+* [Learn to read and write Japanese kanji API](https://rapidapi.com/KanjiAlive/api/learn-to-read-and-write-japanese-kanji/endpoints)
+* [Webpack](https://webpack.js.org/)
+* [Babel](https://babeljs.io/)
+
+
+## Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm install` | Install project dependencies |
+| `npm start` | Build project and open web server running project |
+| `npm eject` | Eject configuration files for customization
+| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+| `npm run test` | Run the available tests |
+| `npm run predeploy` | Build code for deployment |
+| `npm run deploy` | Pushes built code to gh-pages |
+
+-------
+
+## Contact
+
+Sarah Chamorro - [@your_twitter](https://twitter.com/sarah_chamorro) - sarahchamorro@gmail.com
+
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+-------
+
+## Acknowledgements
+* [StackOverflow](stackoverflow.com/)
+* [Create React App](https://github.com/facebook/create-react-app)
+* Microverse
+* Team 54
+
+## CopyRight/Attributions
+
+This project was only possible thanks to the cretors bellow:
+
+[Design idea by Nelson Sakwa on Behance](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
+
+[Kanji Alive great free kanji API](https://rapidapi.com/user/KanjiAlive)
+
+-------
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
+[contributors-url]: https://github.com/uryelah/ao-kanji/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
+[forks-url]: https://github.com/uryelah/ao-kanji/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
+[stars-url]: https://github.com/uryelah/ao-kanji/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
+[issues-url]: https://github.com/uryelah/ao-kanji/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-url]: https://github.com/uryelah/ao-kanji/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/uryelah/
+[product-screenshot]: ./public/aokanji.gif

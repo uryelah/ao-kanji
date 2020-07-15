@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
-import KanjiGroup from './KanjiGroup';
-import './styles/Main.css';
+import KanjiGroup from '../containers/KanjiGroup';
+import '../styles/Main.css';
 import { pageTitle, handleSelect } from '../helpers';
 
 const MainComponent = props => {
@@ -11,17 +11,17 @@ const MainComponent = props => {
 
   return (
     <>
-      <header className={pageTitle[groupBy.length][1]}>
+      <header data-testid="header" className={pageTitle[groupBy.length][1]}>
         <h1>{pageTitle[groupBy.length][0]}</h1>
         <label className="App__header__label" htmlFor="select-group">Group kanji by:</label>
-        <select id="select-group" className="App__header__select" onChange={e => handleSelect(e, actions)}>
-          <option defaultValue={groupBy.length === 6} name="grade">Grade</option>
-          <option defaultValue={groupBy.length === 11} name="macquarie">Macquarie</option>
-          <option defaultValue={groupBy.length === 20} name="ap">AP exam</option>
+        <select defaultValue={groupBy.length} id="select-group" className="App__header__select" onChange={e => handleSelect(e, actions)}>
+          <option value={groupBy.length === 6 ? groupBy.length : 'grade'} name="grade">Grade</option>
+          <option value={groupBy.length === 11 ? groupBy.length : 'macquarie'} name="macquarie">Macquarie</option>
+          <option value={groupBy.length === 20 ? groupBy.length : 'ap exam'} name="ap">AP exam</option>
         </select>
       </header>
 
-      <div className="group group--r-2">
+      <div data-testid="group" className="group group--r-2">
         {
           state.groupBy.map((n, i) => {
             const dark = (i + 1) % 4 <= 1 ? 'card--light' : '';

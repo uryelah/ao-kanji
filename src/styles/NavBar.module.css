@@ -1,0 +1,35 @@
+.nav {
+  align-items: center;
+  background-color: #4369b2;
+  box-sizing: border-box;
+  color:#ffffffdd;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  padding: 0 20px 0 70px;
+  width: 100%;
+}
+
+.ico {
+  margin-right: 10px;
+}
+
+.logo {
+  background-color: #274985;
+  border-top-right-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  overflow: visible;
+  padding: 0 5px;
+  position: fixed;
+  text-decoration: none;
+  top: 0;
+  user-select: none;
+  z-index: 9000;
+}
+
+.logo__kanji {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,23 @@
+.nav__search {
+  background-color: transparent;
+  border: none;
+  color: #ffffff55;
+  flex-basis: 100%;
+  font-size: 1.25rem;
+  margin: 0 5px 0 0;
+  padding: 0 5px 0 5px;
+  text-align: center;
+}
+
+.nav__search:focus, .nav__search:active, .nav__search:valid {
+  color: #fff;
+}
+
+.nav__search:not(:valid) {
+  box-shadow: none;
+}
+
+.ico {
+  display: inline-block;
+  margin: 0 0 0 5px;
+}

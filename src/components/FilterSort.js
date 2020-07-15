@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import kanjis from './styles/KanjiList.module.css';
+import kanjis from '../styles/KanjiList.module.css';
 import { defineFilter } from '../helpers';
 import NothingFound from './NothingFound';
 
@@ -10,11 +10,11 @@ const FilterSort = ({
 }) => {
   useEffect(() => {
     loadVisible();
-  }, [state]);
+  }, [state, loadVisible]);
 
   let elements = state.subscription;
 
-  if (elements && sorting < 0) {
+  if (elements && elements.length && sorting < 0) {
     elements = [...elements].reverse();
   }
 
@@ -38,6 +38,7 @@ const FilterSort = ({
           }
           return (
             <article
+              data-testid={kanji.kanji.character}
               onClick={() => clickHandler(kanji.kanji.character, history, state)}
               onKeyDown={e => handleKeyDown(e, kanji)}
               className={kanjiClass}
@@ -61,8 +62,13 @@ FilterSort.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   clickHandler: PropTypes.func.isRequired,
   loadVisible: PropTypes.func.isRequired,
-  filter: PropTypes.number.isRequired,
-  sorting: PropTypes.number.isRequired,
+  filter: PropTypes.number,
+  sorting: PropTypes.number,
+};
+
+FilterSort.defaultProps = {
+  filter: null,
+  sorting: 1,
 };
 
 export default FilterSort;

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import './styles/FilterSortController.css';
+import '../styles/FilterSortController.css';
 import { isOn, handleFilter as handleClick } from '../helpers';
 
 const FilterSortController = ({
@@ -22,7 +22,7 @@ const FilterSortController = ({
   };
 
   return (
-    <header className="filter-sort-bar">
+    <header data-testid="sort-bar" className="filter-sort-bar">
       <div>
         <i
           className={isOn(-1, sorting)}
