@@ -51,9 +51,9 @@
 
 This project was built as the React capstone for the Microverse curriculum.
 
-It consists of a single page application with client side routing, API consumption and state managed by redux.
+It consists of a single page application with client-side routing, API consumption, and state-managed by redux.
 
-This project requires no authentication, it's a catalogue, with filter, sorting and details features.
+This project requires no authentication, it's a catalog, with filter, sorting, and details features.
 
 To read the full project requirements visit [this link](https://www.notion.so/Catalogue-of-Statistics-72446e7fa33c403a9b6a0bc1de5c6cf5).
 
@@ -61,13 +61,13 @@ Repository: https://github.com/uryelah/ao-kanji
 
 ## About The App
 
-**Ao Kanji** consists of a single page web app for browsing, searching and studying Japanese Kanji.
+**Ao Kanji** consists of a single page web app for browsing, searching, and studying Japanese Kanji.
 
->Kanji (漢字, pronounced [kaɲdʑi] (About this soundlisten)) are the adopted logographic Chinese characters that are used in the Japanese writing system. They are used alongside the Japanese syllabic scripts hiragana and katakana.
+>Kanji (漢字, pronounced [kaɲdʑi]) are the adopted logographic Chinese characters that are used in the Japanese writing system. They are used alongside the Japanese syllabic scripts hiragana and katakana.
 
 _[From wikipedia](Kanji)_
 
-For this project I chose a free API that serves kanji lists and details, including examples of usage and pronunciation, in the app it's possible to browse a pre-defined list of kanjis or do you own search based on a latin alphabeth word.
+For this project I chose a free API that serves kanji lists and details, including examples of usage and pronunciation, in the app, it's possible to browse a pre-defined list of kanjis or do you own search based on a Latin alphabet word.
 
 **Features**
 
@@ -77,7 +77,7 @@ For this project I chose a free API that serves kanji lists and details, includi
 
 - "Back" button at the navbar to browse through past searches
 
-- Mobile first design
+- Mobile-first design
 
 - Animate examples for the kanji stroke order
 
@@ -85,15 +85,15 @@ For this project I chose a free API that serves kanji lists and details, includi
 
 - Kun and On readings
 
-- Kanji english translation
+- Kanji English translation
 
-- Centralised state for fetched kanji data
+- Centralized state for fetched kanji data
 
-- Centralised state for kanji list sorting and filtering
+- Centralized state for kanji list sorting and filtering
 
-- Unique client side routes
+- Unique client-side routes
 
-- Use of react hooks
+- Use of React hooks
 
 - Use of CSS modules and BEM
 
@@ -125,7 +125,7 @@ For this project I chose a free API that serves kanji lists and details, includi
 
 ## Views
 
-This app includes 4 different view:
+This app includes 4 different views:
 
 - Landing page
 <br/>
@@ -168,7 +168,7 @@ Simply access [this link](https://uryelah.github.io/ao-kanji/) and enjoy the gam
 
 **Run it locally**
 
-1. Make sure you have [node installed](https://nodejs.org/en/download/) in you local environment.
+1. Make sure you have [node installed](https://nodejs.org/en/download/) in your local environment.
 
 2. Download or clone this repository
 
@@ -227,7 +227,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 ## CopyRight/Attributions
 
-This project was only possible thanks to the cretors bellow:
+This project was only possible thanks to the creators bellow:
 
 [Design idea by Nelson Sakwa on Behance](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
 
