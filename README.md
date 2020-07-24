@@ -213,9 +213,12 @@ This project was built using the React SPA framework, consuming the data from th
 
 ## Contact
 
-Sarah Chamorro - [@your_twitter](https://twitter.com/sarah_chamorro) - sarahchamorro@gmail.com
+👤 **Sarah Uryelah Silva Chamorro**
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+- Github: [@uryelah](https://github.com/uryelah)
+- Twitter: [@sarah_chamorro](https://twitter.com/sarah_chamorro)
+- Linkedin: [Sharah Chamorro](https://www.linkedin.com/in/uryelah/)
+- Email: [sarahchamorro@gmail.com](sarahchamorro@gmail.com)
 
 -------
 
