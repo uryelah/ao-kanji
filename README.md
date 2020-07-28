@@ -35,6 +35,7 @@
 
 * [About](#about)
 * [About the App](#about-the-app)
+* [Future Improvements](#afuture-features)
 * [Navigation](#navigation)
 * [Characters](#characters)
 * [Views](#views)
@@ -98,6 +99,14 @@ For this project I chose a free API that serves kanji lists and details, includi
 - Use of CSS modules and BEM
 
 -----
+
+## Future Features
+
+- Hiragana and Katana input in the search bar
+
+- Cache the kanji lists and details info
+
+- Canvas area under kanji stroke for practice hand-writing
 
 ## Navigation
 
